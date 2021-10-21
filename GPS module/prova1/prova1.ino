@@ -18,7 +18,6 @@
 // England and Wales, without regard to its conflict of law provisions.
 
 
-//The UNO needs the software emulator of the serial port
 #include <HardwareSerial.h>
 #include <SoftwareSerial.h> //en realitat estem fent servir ESPSoftwareSerial.h
 
@@ -27,10 +26,11 @@ String inputMessage = "";        // A string to hold incoming data
 boolean IsMessageReady = false;  // Whether the string is complete
 
 // gpsSerial(receive from GPS,transmit to the GPS module)
-SoftwareSerial gpsSerial(17,16);
+SoftwareSerial gpsSerial(16,17);
 
 void setup()
 {
+  pinMode(13, OUTPUT);
   // Keep the User informed
   Serial.begin(9600);
   Serial.println("Initializing GPS");
@@ -54,6 +54,10 @@ void setup()
 
 void loop()
 {
+  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);                       // wait for a second
+  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);                       // wait for a second  
   while (gpsSerial.available() && IsMessageReady == false) 
   {
      // Read the new byte:
@@ -84,9 +88,10 @@ void loop()
 void AllSentences()
 {
   // Turn-off Static mode
-  // PMTK_API_SET_STATIC_NAV_THD
+  // PKT Type is PMTK_API_SET_STATIC_NAV_THD
   // Command in the MT3337 Platform NMEA Message Specification_V1.00
-  gpsSerial.println("$PMTK386,0*23");
+  //gpsSerial.println("$PMTK251,9600 *21"); //sets baudrate. Checksum: https://nmeachecksum.eqth.net/
+  gpsSerial.println("$PMTK386,0*23"); //sets navigation speed threshold
   delay(1000);
 
   // Select output sentences
@@ -107,6 +112,6 @@ void AllSentences()
   // To work out the checksum I used the spreadsheet below
   // https://www.roboticboat.uk/Excel/NMEAchecksum.xlsx
   
-  gpsSerial.println("$PMTK314,1,1,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0*30");
+  gpsSerial.println("$PMTK314,1,1,1,1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0*34");
   delay(1000);
 }
