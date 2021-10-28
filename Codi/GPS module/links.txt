@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/57596413/esp32-flashing-upload-starts-and-fails-with-timeout
+https://codedocu.com/Others/Hardware/Arduino-ESP32/Error/OK_colon_-A-fatal-error-occurred_colon_-Timed-out-waiting-for-packet-content?2539
+https://randomnerdtutorials.com/solved-failed-to-connect-to-esp32-timed-out-waiting-for-packet-header/
+https://github.com/plerup/espsoftwareserial
+https://www.rhydolabz.com/wiki/?p=16770

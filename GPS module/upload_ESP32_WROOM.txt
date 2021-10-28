@@ -1,7 +1,0 @@
-per pujar un programa:
-
-- Desconnectar l'alimentació del GPS
-- Quan estigui actualitzant, connectar un cable entre GND i GPIO2 o bé prémer BOOT fins que desaparegui el Connecting
-- Connectar de nou l'alimentació del GPS
-- Obrir el monitor sèrie
-- Prémer RST un cop finalitzada la càrrega
