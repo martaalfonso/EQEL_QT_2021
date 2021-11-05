@@ -1,11 +1,10 @@
 /*
-Codi final que unifica tots els sensors utilitzats. Pel desenvolupament del mateix,
-s'ha extret el codi de diverses fonts indicades a continuació:
-- Brúixola (HMC5883L): https://github.com/jarzebski/Arduino-HMC5883L
-- Acceleròmetre i giròscop (MPU6050): https://randomnerdtutorials.com/esp32-mpu-6050-accelerometer-gyroscope-arduino/
-- Sensor de temperatura i humitat (DHT11): DHT Sensor Library Adafruit
-- Sensor d'inundació (VMA303): ...
- */
+  Codi final que unifica tots els sensors utilitzats. Pel desenvolupament del mateix,
+  s'ha extret el codi de diverses fonts indicades a continuació:
+  - Brúixola (HMC5883L): https://github.com/jarzebski/Arduino-HMC5883L
+  - Acceleròmetre i giròscop (MPU6050): https://randomnerdtutorials.com/esp32-mpu-6050-accelerometer-gyroscope-arduino/
+  - Sensor de temperatura i humitat (DHT11): DHT Sensor Library Adafruit
+*/
 
 // S'inclouen les llibreries
 #include <Adafruit_MPU6050.h>   // MPU6050 Adafruit
@@ -15,21 +14,28 @@ s'ha extret el codi de diverses fonts indicades a continuació:
 #include <HMC5883L.h>           // HMC5883L inclosa en la carpeta
 #include <Wire.h>               // I2C               
 
+// Definim constants
 #define DHTPIN 18               // Pin digital connectat al sensor DHT
 #define DHTTYPE DHT11           // S'indica que s'utilitza concretament el DHT11
 #define WATER_LEVEL 4           // Tipus de sensor d'inundació 
+#define CURRENT_PIN 34
 
-Adafruit_MPU6050 mpu; 
+// Declarem objectes
+Adafruit_MPU6050 mpu;
 DHT_Unified dht(DHTPIN, DHTTYPE);
 HMC5883L compass;
 
+// Variables
 uint32_t delayMS;
 int nivell_aigua = 0;
+float Sensibilidad = 0.09625; //Sensibilitat en Volts/Amper per sensor de 20 A
 
 void setup(void) {
+
+  // Inicialització del serial
   Serial.begin(9600);
   while (!Serial)
-    delay(10); 
+    delay(10);
 
   // Intenta inicialitzar el MPU6050
   if (!mpu.begin()) {
@@ -63,12 +69,11 @@ void setup(void) {
   dht.begin();                                        // Inicialitza el DHT11
   sensor_t sensor;
   dht.temperature().getSensor(&sensor);
-  dht.humidity().getSensor(&sensor);
   delayMS = sensor.min_delay / 1000;
 
   // ----------------- VMA ------------------
   pinMode(WATER_LEVEL, INPUT);
-  
+
   delay(100);
 }
 
@@ -101,13 +106,13 @@ void loop() {
   float headingDegrees = heading * 180 / M_PI;    // Converteix la direcció de radians a graus
 
   // --------------- VMA ----------------
-  nivell_aigua = analogRead(WATER_LEVEL);         
+  nivell_aigua = analogRead(WATER_LEVEL);
 
   /* Imprimim per pantalla els valors */
   // ------------- MPU6050 --------------
   // Acceleròmetre
   Serial.print("Acceleració X: ");
-  Serial.print(a.acceleration.x - 0.56);
+  Serial.print(a.acceleration.x - 0.58);
   Serial.print(", Y: ");
   Serial.print(a.acceleration.y + 0.19);
   Serial.print(", Z: ");
@@ -129,7 +134,7 @@ void loop() {
   Serial.print(heading);
   Serial.print(" Graus = ");
   Serial.print(headingDegrees);
-  Serial.print("º");
+  Serial.print("°");
   Serial.println();
 
   // ----------------- DHT11 ------------------
@@ -145,23 +150,38 @@ void loop() {
     Serial.print(event.temperature);
     Serial.println(F("°C"));
   }
-  // S'obté l'humitat
-  dht.humidity().getEvent(&event);
-  if (isnan(event.relative_humidity)) {
-    Serial.println(F("Error llegint l'humitat"));
-  }
-  // S'imprimeix el valor de la humitat
-  else {
-    Serial.print(F("Humitat: "));
-    Serial.print(event.relative_humidity);
-    Serial.println(F("%"));
-  }
 
   // --------------- VMA303 ----------------
   // S'imprimeix el nivell d'aigua
   Serial.print("Nivell d'aigua: ");
   Serial.println(nivell_aigua);
 
+  // --------------- ACS712 ----------------
+  float I = get_corriente(20);    // Fem un filtre fent mitjana aritmètica, si no volem filtre escriure un 1
+  Serial.print("Corriente: ");
+  Serial.println(I, 3); // Visualitzem 3 decimals
+
   Serial.println("");
   delay(1000);
+}
+
+
+* / ------------ - Filtre del sensor de corrent ------------------
+float get_corriente(int n_muestras) {
+  float voltajeSensor;
+  float corriente = 0;
+
+  if (n_muestras == 1) {
+    voltajeSensor = analogRead(CURRENT_PIN) * (3.3 / 4095.0); // Lectura del sensor
+    corriente = (voltajeSensor - 2.1) // Equació per obtenir la corrent
+  }
+  else {
+    for (int i = 0; i < n_muestras; i++)
+    {
+      voltajeSensor = analogRead(CURRENT_PIN) * (3.3 / 4095.0); // Lectura del sensor
+      corriente = corriente + (voltajeSensor - 2.1) // Equació per obtenir la corrent
+    }
+    corriente = corriente / n_muestras;
+  }
+  return (corriente);
 }
