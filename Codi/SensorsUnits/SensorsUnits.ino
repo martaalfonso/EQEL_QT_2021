@@ -12,7 +12,15 @@
 #include <DHT.h>                // DHT11 Adafruit
 #include <DHT_U.h>              // DHT11
 #include <HMC5883L.h>           // HMC5883L inclosa en la carpeta
-#include <Wire.h>               // I2C               
+#include <Wire.h>               // I2C
+#include <WiFi.h>
+#include <PubSubClient.h>               
+
+// Declarem funcions
+float get_corriente(int n_muestras);
+void setup_wifi();
+void callback(char* topic, byte* message, unsigned int length);
+void reconnect();
 
 // Definim constants
 #define DHTPIN 18               // Pin digital connectat al sensor DHT
@@ -30,10 +38,28 @@ uint32_t delayMS;
 int nivell_aigua = 0;
 float Sensibilidad = 0.09625; //Sensibilitat en Volts/Amper per sensor de 20 A
 
+
+// Replace the next variables with your SSID/Password combination
+const char* ssid = "iPhone de: Marta";
+const char* password = "test1234";
+
+// Add your MQTT Broker IP address, example:
+//const char* mqtt_server = "192.168.1.144";
+const char* mqtt_server = "172.20.10.12"; //YOUR_MQTT_BROKER_IP_ADDRESS
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+long lastMsg = 0;
+char msg[50];
+int value = 0;
+
 void setup(void) {
 
   // Inicialització del serial
-  Serial.begin(9600);
+  Serial.begin(115200);
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
   while (!Serial)
     delay(10);
 
@@ -78,6 +104,16 @@ void setup(void) {
 }
 
 void loop() {
+  // --------------- Wi-Fi ------------------
+    if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+
+  long now = millis();
+  if (now - lastMsg > 5000) {
+    lastMsg = now;
+  }
   // --------------- HMC5883L ---------------
   /* S'obtenen els nous esdeveniments del sensor amb les lectures */
   sensors_event_t a, g, temp;
@@ -166,22 +202,88 @@ void loop() {
 }
 
 
-* / ------------ - Filtre del sensor de corrent ------------------
+// ------------ - Filtre del sensor de corrent ------------------ 
 float get_corriente(int n_muestras) {
   float voltajeSensor;
   float corriente = 0;
 
   if (n_muestras == 1) {
     voltajeSensor = analogRead(CURRENT_PIN) * (3.3 / 4095.0); // Lectura del sensor
-    corriente = (voltajeSensor - 2.1) // Equació per obtenir la corrent
+    corriente = (voltajeSensor - 2.1); // Equació per obtenir la corrent
   }
   else {
     for (int i = 0; i < n_muestras; i++)
     {
       voltajeSensor = analogRead(CURRENT_PIN) * (3.3 / 4095.0); // Lectura del sensor
-      corriente = corriente + (voltajeSensor - 2.1) // Equació per obtenir la corrent
+      corriente = corriente + (voltajeSensor - 2.1); // Equació per obtenir la corrent
     }
     corriente = corriente / n_muestras;
   }
   return (corriente);
+}
+
+void setup_wifi() {
+  delay(10);
+  // We start by connecting to a WiFi network
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void callback(char* topic, byte* message, unsigned int length) {
+  Serial.print("Message arrived on topic: ");
+  Serial.print(topic);
+  Serial.print(". Message: ");
+  String messageTemp;
+  
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)message[i]);
+    messageTemp += (char)message[i];
+  }
+  Serial.println();
+
+  // Feel free to add more if statements to control more GPIOs with MQTT
+
+  // If a message is received on the topic esp32/output, you check if the message is either "on" or "off". 
+  // Changes the output state according to the message
+  if (String(topic) == "esp32/output") {
+    Serial.print("Changing output to ");
+    if(messageTemp == "on"){
+      Serial.println("on");
+    }
+    else if(messageTemp == "off"){
+      Serial.println("off");
+    }
+  }
+}
+
+void reconnect() {
+  // Loop until we're reconnected
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    // Attempt to connect
+    if (client.connect("ESP8266Client")) {
+      Serial.println("connected");
+      // Subscribe
+      client.subscribe("esp32/output");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
 }
