@@ -1,0 +1,15 @@
+{
+    "name": "comunicacions",
+    "description": "Graphical User Interface i comunicacions per al vaixell d'EQEL M1",
+    "version": "0.0.1",
+    "dependencies": {
+        "node-red-dashboard": "3.1.0",
+        "node-red-contrib-ui-led": "0.4.11"
+    },
+    "node-red": {
+        "settings": {
+            "flowFile": "flow.json",
+            "credentialsFile": "flow_cred.json"
+        }
+    }
+}
