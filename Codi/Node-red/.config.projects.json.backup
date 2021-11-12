@@ -1,0 +1,7 @@
+{
+    "projects": {
+        "EQEL": {
+            "credentialSecret": false
+        }
+    }
+}
