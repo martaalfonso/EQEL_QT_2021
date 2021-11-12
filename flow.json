@@ -351,8 +351,13 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
+<<<<<<< HEAD
         "x": 270,
         "y": 180,
+=======
+        "x": 590,
+        "y": 140,
+>>>>>>> 79397b76fb79bc77f0e3424ff2866b1880bf4adf
         "wires": []
     },
     {
@@ -367,8 +372,13 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
+<<<<<<< HEAD
         "x": 90,
         "y": 140,
+=======
+        "x": 390,
+        "y": 100,
+>>>>>>> 79397b76fb79bc77f0e3424ff2866b1880bf4adf
         "wires": [
             [
                 "cd4ac14b6e66ba23",
@@ -386,8 +396,13 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
+<<<<<<< HEAD
         "x": 290,
         "y": 120,
+=======
+        "x": 610,
+        "y": 80,
+>>>>>>> 79397b76fb79bc77f0e3424ff2866b1880bf4adf
         "wires": []
     }
 ]
