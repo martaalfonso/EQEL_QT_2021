@@ -351,8 +351,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 270,
-        "y": 180,
+        "x": 550,
+        "y": 140,
         "wires": []
     },
     {
@@ -367,8 +367,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 90,
-        "y": 140,
+        "x": 370,
+        "y": 100,
         "wires": [
             [
                 "cd4ac14b6e66ba23",
@@ -386,8 +386,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 290,
-        "y": 120,
+        "x": 570,
+        "y": 80,
         "wires": []
     }
 ]
