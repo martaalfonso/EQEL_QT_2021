@@ -338,13 +338,13 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
+                "value": "disconnected",
+                "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
+                "value": "connected",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
