@@ -192,8 +192,8 @@
         "id": "41966ddc.701f44",
         "type": "ui_group",
         "name": "X Axis",
-        "tab": "65f4b922.5ef4a8",
-        "order": 1,
+        "tab": "e7c46d5e.a1283",
+        "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -202,8 +202,8 @@
         "id": "214bf69f.fbceca",
         "type": "ui_group",
         "name": "Y Axis",
-        "tab": "65f4b922.5ef4a8",
-        "order": 2,
+        "tab": "e7c46d5e.a1283",
+        "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -212,18 +212,11 @@
         "id": "15c53cc2.e75d93",
         "type": "ui_group",
         "name": "Z Axis",
-        "tab": "65f4b922.5ef4a8",
-        "order": 3,
+        "tab": "e7c46d5e.a1283",
+        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false
-    },
-    {
-        "id": "65f4b922.5ef4a8",
-        "type": "ui_tab",
-        "name": "X",
-        "icon": "dashboard",
-        "order": 2
     },
     {
         "id": "f98bb1a78f5febf5",
