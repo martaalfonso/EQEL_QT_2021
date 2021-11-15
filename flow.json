@@ -569,19 +569,19 @@
         "type": "mqtt in",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "topic": "esp32/humidity",
+        "topic": "esp32/nivell_aigua",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 333,
+        "x": 343,
         "y": 251,
         "wires": [
             [
                 "22efa7b7.544a28",
-                "df37e6b7.64c1c8"
+                "d291f23e37563030"
             ]
         ]
     },
@@ -642,33 +642,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "df37e6b7.64c1c8",
-        "type": "ui_gauge",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "group": "61285987.c20328",
-        "order": 3,
-        "width": "10",
-        "height": "6",
-        "gtype": "gage",
-        "title": "Humidity",
-        "label": "%",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b3d9",
-            "#0073e6",
-            "#001bd7"
-        ],
-        "seg1": "33",
-        "seg2": "66",
-        "className": "",
-        "x": 520,
-        "y": 278,
-        "wires": []
     },
     {
         "id": "98809a7822b65077",
@@ -744,5 +717,49 @@
         "x": 570,
         "y": 140,
         "wires": []
+    },
+    {
+        "id": "d291f23e37563030",
+        "type": "ui_chart",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "group": "61285987.c20328",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "label": "Nivell d'aigua",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 280,
+        "wires": [
+            []
+        ]
     }
 ]
