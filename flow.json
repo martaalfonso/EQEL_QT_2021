@@ -230,6 +230,17 @@
         "className": ""
     },
     {
+        "id": "2765f66b230c1565",
+        "type": "ui_group",
+        "name": "GPS",
+        "tab": "e7c46d5e.a1283",
+        "order": 5,
+        "disp": true,
+        "width": "11",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "f98bb1a78f5febf5",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
