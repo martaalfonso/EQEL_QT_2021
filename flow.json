@@ -607,7 +607,7 @@
         "group": "61285987.c20328",
         "order": 2,
         "width": "20",
-        "height": "1",
+        "height": "6",
         "label": "Temperature",
         "chartType": "line",
         "legend": "false",
