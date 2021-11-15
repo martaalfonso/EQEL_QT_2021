@@ -8,9 +8,28 @@
         "env": []
     },
     {
+        "id": "70bb51d9.36fd7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "9f98de58bc05c7b9",
         "type": "subflow",
         "name": "Alive_sensors",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "0965d1af9331699a",
+        "type": "subflow",
+        "name": "Giroscopi",
         "info": "",
         "category": "",
         "in": [],
@@ -154,6 +173,64 @@
                 "py": 0
             }
         }
+    },
+    {
+        "id": "2f70a0d2.a0ff7",
+        "type": "mqtt-broker",
+        "name": "iot.eclipse.org",
+        "broker": "iot.eclipse.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "5",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "41966ddc.701f44",
+        "type": "ui_group",
+        "name": "X Axis",
+        "tab": "65f4b922.5ef4a8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "214bf69f.fbceca",
+        "type": "ui_group",
+        "name": "Y Axis",
+        "tab": "65f4b922.5ef4a8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "15c53cc2.e75d93",
+        "type": "ui_group",
+        "name": "Z Axis",
+        "tab": "65f4b922.5ef4a8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "65f4b922.5ef4a8",
+        "type": "ui_tab",
+        "name": "X",
+        "icon": "dashboard",
+        "order": 2
     },
     {
         "id": "f98bb1a78f5febf5",
@@ -486,6 +563,355 @@
         "wires": []
     },
     {
+        "id": "daf2b38c629680ab",
+        "type": "mqtt in",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "topic": "AccelX",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "092fb224923e6f01",
+                "7fee6a5d91cf7209"
+            ]
+        ]
+    },
+    {
+        "id": "df3b3f1b798d7eea",
+        "type": "mqtt in",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "topic": "AccelY",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "c2e89b017414b834",
+                "a584961d9b96a8b3"
+            ]
+        ]
+    },
+    {
+        "id": "8111df2667ec1079",
+        "type": "mqtt in",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "topic": "AccelZ",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "f070f40e7eca6148",
+                "df439238f2ab065c"
+            ]
+        ]
+    },
+    {
+        "id": "39029fb5c802dac3",
+        "type": "mqtt in",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "topic": "RotateX",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 310,
+        "y": 380,
+        "wires": [
+            [
+                "29765a4739b52adf",
+                "85f08f4ba80282a5"
+            ]
+        ]
+    },
+    {
+        "id": "7e833825ada4657e",
+        "type": "mqtt in",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "topic": "RotateY",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 279,
+        "y": 496,
+        "wires": [
+            [
+                "f4b2255b35c4a5de",
+                "c622518ce6e69554"
+            ]
+        ]
+    },
+    {
+        "id": "2f63044a00eed04e",
+        "type": "mqtt in",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "topic": "RotateZ",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 336,
+        "y": 563,
+        "wires": [
+            [
+                "0246ac2cbd92f7dd",
+                "f0629ac9738a67d0"
+            ]
+        ]
+    },
+    {
+        "id": "092fb224923e6f01",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "X",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 550,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c2e89b017414b834",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "214bf69f.fbceca",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Y",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 590,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f070f40e7eca6148",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "15c53cc2.e75d93",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Z",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 570,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "29765a4739b52adf",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "X Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "65536",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 586,
+        "y": 323,
+        "wires": []
+    },
+    {
+        "id": "f4b2255b35c4a5de",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "214bf69f.fbceca",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Y Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 586,
+        "y": 443,
+        "wires": []
+    },
+    {
+        "id": "0246ac2cbd92f7dd",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "15c53cc2.e75d93",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Z Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 566,
+        "y": 563,
+        "wires": []
+    },
+    {
+        "id": "7fee6a5d91cf7209",
+        "type": "debug",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a584961d9b96a8b3",
+        "type": "debug",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "df439238f2ab065c",
+        "type": "debug",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 590,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "85f08f4ba80282a5",
+        "type": "debug",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 596,
+        "y": 383,
+        "wires": []
+    },
+    {
+        "id": "c622518ce6e69554",
+        "type": "debug",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 596,
+        "y": 483,
+        "wires": []
+    },
+    {
+        "id": "f0629ac9738a67d0",
+        "type": "debug",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 576,
+        "y": 623,
+        "wires": []
+    },
+    {
         "id": "9e58624.7faaba",
         "type": "mqtt out",
         "z": "d821cc0e9fee2262",
@@ -761,5 +1187,264 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "90b72cb9.a576b",
+        "type": "mqtt in",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "topic": "AccelX",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 230,
+        "y": 100,
+        "wires": [
+            [
+                "2caa73c6.f4668c"
+            ]
+        ]
+    },
+    {
+        "id": "4b196317.f1353c",
+        "type": "mqtt in",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "topic": "AccelY",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 293,
+        "y": 180,
+        "wires": [
+            [
+                "d878dabf.c44648"
+            ]
+        ]
+    },
+    {
+        "id": "9121d6b9.db3b48",
+        "type": "mqtt in",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "topic": "AccelZ",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 199,
+        "y": 263,
+        "wires": [
+            [
+                "9d9c16d2.ffefc8"
+            ]
+        ]
+    },
+    {
+        "id": "d5454e1f.25e7c",
+        "type": "mqtt in",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "topic": "RotateX",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 184,
+        "y": 357,
+        "wires": [
+            [
+                "445e5804.310f18"
+            ]
+        ]
+    },
+    {
+        "id": "e936435a.bcbdb",
+        "type": "mqtt in",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "topic": "RotateY",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 153,
+        "y": 473,
+        "wires": [
+            [
+                "d3579215.5808d"
+            ]
+        ]
+    },
+    {
+        "id": "ca6d5386.ca764",
+        "type": "mqtt in",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "topic": "RotateZ",
+        "qos": "2",
+        "broker": "2f70a0d2.a0ff7",
+        "inputs": 0,
+        "x": 326,
+        "y": 477,
+        "wires": [
+            [
+                "2821f222.561f7e"
+            ]
+        ]
+    },
+    {
+        "id": "2caa73c6.f4668c",
+        "type": "ui_gauge",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "X",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 236,
+        "y": 58,
+        "wires": []
+    },
+    {
+        "id": "d878dabf.c44648",
+        "type": "ui_gauge",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "group": "214bf69f.fbceca",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Y",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 291,
+        "y": 139,
+        "wires": []
+    },
+    {
+        "id": "9d9c16d2.ffefc8",
+        "type": "ui_gauge",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "group": "15c53cc2.e75d93",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Z",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 187,
+        "y": 213,
+        "wires": []
+    },
+    {
+        "id": "445e5804.310f18",
+        "type": "ui_gauge",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "X Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "65536",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 206,
+        "y": 312,
+        "wires": []
+    },
+    {
+        "id": "d3579215.5808d",
+        "type": "ui_gauge",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "group": "214bf69f.fbceca",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Y Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 182,
+        "y": 427,
+        "wires": []
+    },
+    {
+        "id": "2821f222.561f7e",
+        "type": "ui_gauge",
+        "z": "70bb51d9.36fd7",
+        "name": "",
+        "group": "15c53cc2.e75d93",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Z Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 301,
+        "y": 542,
+        "wires": []
     }
 ]
