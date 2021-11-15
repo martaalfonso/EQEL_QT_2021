@@ -47,8 +47,9 @@
         "tab": "e7c46d5e.a1283",
         "order": 1,
         "disp": true,
-        "width": "6",
-        "collapse": false
+        "width": "50",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "e7c46d5e.a1283",
