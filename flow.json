@@ -608,7 +608,7 @@
         "order": 2,
         "width": "10",
         "height": "6",
-        "label": "Temperature",
+        "label": "Temperatura",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
