@@ -8,6 +8,18 @@
         "env": []
     },
     {
+        "id": "9f98de58bc05c7b9",
+        "type": "subflow",
+        "name": "Alive_sensors",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
         "id": "10e78a89.5b4fd5",
         "type": "mqtt-broker",
         "name": "",
@@ -141,6 +153,336 @@
         }
     },
     {
+        "id": "f98bb1a78f5febf5",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 3,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Alive indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "disconnected",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "connected",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ed8ad9234c69a730",
+        "type": "mqtt in",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "topic": "esp32/alive_temperature",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "793df4709efae295",
+                "f98bb1a78f5febf5"
+            ]
+        ]
+    },
+    {
+        "id": "793df4709efae295",
+        "type": "debug",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fc702e85a0c6fa40",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 3,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Alive indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "disconnected",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "connected",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c2f949a3ddb8348e",
+        "type": "mqtt in",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "topic": "esp32/alive_gps",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "8dc67c15df9cd1f4",
+                "fc702e85a0c6fa40"
+            ]
+        ]
+    },
+    {
+        "id": "8dc67c15df9cd1f4",
+        "type": "debug",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a9db89c0db77012c",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 3,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Alive indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "disconnected",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "connected",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0f823baaabc2933c",
+        "type": "mqtt in",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "topic": "esp32/alive_gyro",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "9b0949deebaa2431",
+                "a9db89c0db77012c"
+            ]
+        ]
+    },
+    {
+        "id": "9b0949deebaa2431",
+        "type": "debug",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7b861d89d1a074d6",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 3,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Alive indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "disconnected",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "connected",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bacf20bf4d68454e",
+        "type": "mqtt in",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "topic": "esp32/alive_bruixola",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "0b3e4f2f015b9876",
+                "7b861d89d1a074d6"
+            ]
+        ]
+    },
+    {
+        "id": "0b3e4f2f015b9876",
+        "type": "debug",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 410,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "fbce4d15d5aaf976",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 3,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Alive indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "disconnected",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "connected",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 870,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b19392fdb150acf0",
+        "type": "mqtt in",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "topic": "esp32/alive_nivell",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 600,
+        "y": 80,
+        "wires": [
+            [
+                "d3c6129c19dca532",
+                "fbce4d15d5aaf976"
+            ]
+        ]
+    },
+    {
+        "id": "d3c6129c19dca532",
+        "type": "debug",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 60,
+        "wires": []
+    },
+    {
         "id": "9e58624.7faaba",
         "type": "mqtt out",
         "z": "d821cc0e9fee2262",
@@ -149,7 +491,7 @@
         "qos": "",
         "retain": "",
         "broker": "10e78a89.5b4fd5",
-        "x": 510,
+        "x": 470,
         "y": 460,
         "wires": []
     },
@@ -162,7 +504,7 @@
         "qos": "2",
         "broker": "10e78a89.5b4fd5",
         "inputs": 0,
-        "x": 384,
+        "x": 344,
         "y": 367,
         "wires": [
             [
@@ -197,7 +539,7 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 369,
+        "x": 329,
         "y": 460,
         "wires": [
             [
@@ -215,7 +557,7 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 581,
+        "x": 541,
         "y": 334,
         "wires": []
     },
@@ -231,7 +573,7 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 373,
+        "x": 333,
         "y": 251,
         "wires": [
             [
@@ -250,7 +592,7 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 570,
+        "x": 530,
         "y": 218,
         "wires": []
     },
@@ -292,7 +634,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 581,
+        "x": 541,
         "y": 394,
         "wires": [
             []
@@ -320,7 +662,7 @@
         ],
         "seg1": "33",
         "seg2": "66",
-        "x": 560,
+        "x": 520,
         "y": 278,
         "wires": []
     },
@@ -388,6 +730,15 @@
         "complete": "false",
         "x": 550,
         "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d9eb5a3d0dbb2db8",
+        "type": "subflow:9f98de58bc05c7b9",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "x": 820,
+        "y": 180,
         "wires": []
     }
 ]
