@@ -160,7 +160,7 @@
         "group": "61285987.c20328",
         "width": 0,
         "height": 0,
-        "label": "Alive indicator",
+        "label": "Temperatura",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -226,7 +226,7 @@
         "group": "61285987.c20328",
         "width": 0,
         "height": 0,
-        "label": "Alive indicator",
+        "label": "GPS",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -292,7 +292,7 @@
         "group": "61285987.c20328",
         "width": 0,
         "height": 0,
-        "label": "Alive indicator",
+        "label": "Acceleròmetre",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -358,7 +358,7 @@
         "group": "61285987.c20328",
         "width": 0,
         "height": 0,
-        "label": "Alive indicator",
+        "label": "Brúixola",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -424,7 +424,7 @@
         "group": "61285987.c20328",
         "width": 0,
         "height": 0,
-        "label": "Alive indicator",
+        "label": "Nivell d'aigua",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
