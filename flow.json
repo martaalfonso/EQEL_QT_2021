@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "e51deeae8d60976c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "9f98de58bc05c7b9",
         "type": "subflow",
         "name": "Alive_sensors",
@@ -1216,7 +1224,9 @@
         "x": 580,
         "y": 500,
         "wires": [
-            []
+            [
+                "6b99dd58ed2dcdf7"
+            ]
         ]
     },
     {
@@ -1252,6 +1262,131 @@
         "complete": "false",
         "x": 570,
         "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6b99dd58ed2dcdf7",
+        "type": "debug",
+        "z": "d821cc0e9fee2262",
+        "name": "Compass point",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "bec07115.9b64a",
+        "type": "compass-point",
+        "z": "e51deeae8d60976c",
+        "direction": "toCompass",
+        "subset": "secondary",
+        "language": "en",
+        "inputField": "payload",
+        "outputField": "payload",
+        "name": "",
+        "x": 460,
+        "y": 240,
+        "wires": [
+            [
+                "cc38d99.2386a28"
+            ]
+        ]
+    },
+    {
+        "id": "122e96c9.988c69",
+        "type": "inject",
+        "z": "e51deeae8d60976c",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "270",
+        "payloadType": "num",
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "bec07115.9b64a"
+            ]
+        ]
+    },
+    {
+        "id": "cc38d99.2386a28",
+        "type": "debug",
+        "z": "e51deeae8d60976c",
+        "name": "Compass point",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6e6a70de.f4f7e",
+        "type": "compass-point",
+        "z": "e51deeae8d60976c",
+        "direction": "toDegree",
+        "subset": "secondary",
+        "language": "en",
+        "inputField": "payload",
+        "outputField": "payload",
+        "name": "",
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "f863e65b.64a378"
+            ]
+        ]
+    },
+    {
+        "id": "bba77ff8.e726",
+        "type": "inject",
+        "z": "e51deeae8d60976c",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "W",
+        "payloadType": "str",
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "6e6a70de.f4f7e"
+            ]
+        ]
+    },
+    {
+        "id": "f863e65b.64a378",
+        "type": "debug",
+        "z": "e51deeae8d60976c",
+        "name": "Degree",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 650,
+        "y": 300,
         "wires": []
     }
 ]
