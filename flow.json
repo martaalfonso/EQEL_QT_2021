@@ -1212,24 +1212,6 @@
         "wires": []
     },
     {
-        "id": "c6adf96832f2084b",
-        "type": "compass-point",
-        "z": "d821cc0e9fee2262",
-        "direction": "toCompass",
-        "subset": "secondary",
-        "language": "en",
-        "inputField": "payload",
-        "outputField": "payload",
-        "name": "",
-        "x": 580,
-        "y": 500,
-        "wires": [
-            [
-                "6b99dd58ed2dcdf7"
-            ]
-        ]
-    },
-    {
         "id": "6323ef0c607d3867",
         "type": "mqtt in",
         "z": "d821cc0e9fee2262",
@@ -1246,7 +1228,7 @@
         "wires": [
             [
                 "c5b5a7d0e7b9e29c",
-                "c6adf96832f2084b"
+                "40dcde2e07b78620"
             ]
         ]
     },
@@ -1265,20 +1247,30 @@
         "wires": []
     },
     {
-        "id": "6b99dd58ed2dcdf7",
-        "type": "debug",
+        "id": "40dcde2e07b78620",
+        "type": "ui_gauge",
         "z": "d821cc0e9fee2262",
-        "name": "Compass point",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 500,
+        "name": "",
+        "group": "61285987.c20328",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Brúixola",
+        "label": "graus",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 560,
+        "y": 480,
         "wires": []
     },
     {
