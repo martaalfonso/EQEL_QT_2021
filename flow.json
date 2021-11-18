@@ -2,7 +2,7 @@
     {
         "id": "d821cc0e9fee2262",
         "type": "tab",
-        "label": "Comunicacions_1",
+        "label": "Comunicacions",
         "disabled": false,
         "info": "Primera prova de comunicacions",
         "env": []
@@ -53,6 +53,27 @@
         "willPayload": ""
     },
     {
+        "id": "2f70a0d2.a0ff7",
+        "type": "mqtt-broker",
+        "name": "iot.eclipse.org",
+        "broker": "iot.eclipse.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "5",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
         "id": "61285987.c20328",
         "type": "ui_group",
         "name": "Indicadors d'estat",
@@ -64,10 +85,101 @@
         "className": ""
     },
     {
+        "id": "41966ddc.701f44",
+        "type": "ui_group",
+        "name": "MPU6050",
+        "tab": "e7c46d5e.a1283",
+        "order": 4,
+        "disp": true,
+        "width": "15",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bcf4c731dd8d45fc",
+        "type": "ui_group",
+        "name": "Brúixola",
+        "tab": "e7c46d5e.a1283",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "592e27d40a230c67",
+        "type": "ui_group",
+        "name": "Interior vaixell",
+        "tab": "e7c46d5e.a1283",
+        "order": 2,
+        "disp": true,
+        "width": "14",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2765f66b230c1565",
+        "type": "ui_group",
+        "name": "GPS",
+        "tab": "e7c46d5e.a1283",
+        "order": 6,
+        "disp": true,
+        "width": "11",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7a832387.7a6c6c",
+        "type": "ui_group",
+        "name": "Map",
+        "tab": "f76c8797.584da8",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
+        "id": "a082d5ab.8a1268",
+        "type": "ui_group",
+        "name": "History",
+        "tab": "f76c8797.584da8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8930f03.56e081",
+        "type": "ui_group",
+        "name": "Speed, Altitude, Accuracy chart",
+        "tab": "f76c8797.584da8",
+        "order": 4,
+        "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
+        "id": "7cc9c15c.f49b6",
+        "type": "ui_group",
+        "name": "Tracks",
+        "tab": "f76c8797.584da8",
+        "order": 5,
+        "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
         "id": "e7c46d5e.a1283",
         "type": "ui_tab",
         "name": "Dashboard",
         "icon": "dashboard"
+    },
+    {
+        "id": "f76c8797.584da8",
+        "type": "ui_tab",
+        "name": "GPS Tracker",
+        "icon": "gps_fixed",
+        "order": 21
     },
     {
         "id": "9b75a986a826318a",
@@ -168,155 +280,6 @@
         }
     },
     {
-        "id": "2f70a0d2.a0ff7",
-        "type": "mqtt-broker",
-        "name": "iot.eclipse.org",
-        "broker": "iot.eclipse.org",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "5",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
-    },
-    {
-        "id": "41966ddc.701f44",
-        "type": "ui_group",
-        "name": "MPU6050",
-        "tab": "e7c46d5e.a1283",
-        "order": 4,
-        "disp": true,
-        "width": "15",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "bcf4c731dd8d45fc",
-        "type": "ui_group",
-        "name": "Brúixola",
-        "tab": "e7c46d5e.a1283",
-        "order": 3,
-        "disp": true,
-        "width": "7",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "592e27d40a230c67",
-        "type": "ui_group",
-        "name": "Interior vaixell",
-        "tab": "e7c46d5e.a1283",
-        "order": 2,
-        "disp": true,
-        "width": "14",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "2765f66b230c1565",
-        "type": "ui_group",
-        "name": "GPS",
-        "tab": "e7c46d5e.a1283",
-        "order": 5,
-        "disp": true,
-        "width": "11",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "7a832387.7a6c6c",
-        "type": "ui_group",
-        "name": "Map",
-        "tab": "f76c8797.584da8",
-        "order": 1,
-        "disp": true,
-        "width": "20",
-        "collapse": false
-    },
-    {
-        "id": "a082d5ab.8a1268",
-        "type": "ui_group",
-        "name": "History",
-        "tab": "f76c8797.584da8",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "8930f03.56e081",
-        "type": "ui_group",
-        "name": "Speed, Altitude, Accuracy chart",
-        "tab": "f76c8797.584da8",
-        "order": 4,
-        "disp": true,
-        "width": "20",
-        "collapse": false
-    },
-    {
-        "id": "7cc9c15c.f49b6",
-        "type": "ui_group",
-        "name": "Tracks",
-        "tab": "f76c8797.584da8",
-        "order": 5,
-        "disp": true,
-        "width": "20",
-        "collapse": false
-    },
-    {
-        "id": "f76c8797.584da8",
-        "type": "ui_tab",
-        "name": "GPS Tracker",
-        "icon": "gps_fixed",
-        "order": 21
-    },
-    {
-        "id": "3bdf3d0e.e69262",
-        "type": "sqlitedb",
-        "db": "/home/pi/sqlite/tracker",
-        "mode": "RWC"
-    },
-    {
-        "id": "f98bb1a78f5febf5",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 1,
-        "group": "61285987.c20328",
-        "width": "5",
-        "height": "1",
-        "label": "Temperatura",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "disconnected",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "connected",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 390,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "ed8ad9234c69a730",
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
@@ -333,7 +296,7 @@
         "wires": [
             [
                 "793df4709efae295",
-                "f98bb1a78f5febf5"
+                "c1dc6168154e2712"
             ]
         ]
     },
@@ -349,37 +312,6 @@
         "complete": "false",
         "x": 410,
         "y": 60,
-        "wires": []
-    },
-    {
-        "id": "fc702e85a0c6fa40",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 2,
-        "group": "61285987.c20328",
-        "width": "5",
-        "height": "1",
-        "label": "GPS",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "disconnected",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "connected",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 390,
-        "y": 240,
         "wires": []
     },
     {
@@ -399,7 +331,7 @@
         "wires": [
             [
                 "8dc67c15df9cd1f4",
-                "fc702e85a0c6fa40"
+                "78615ef789b516b4"
             ]
         ]
     },
@@ -415,37 +347,6 @@
         "complete": "false",
         "x": 410,
         "y": 180,
-        "wires": []
-    },
-    {
-        "id": "a9db89c0db77012c",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 3,
-        "group": "61285987.c20328",
-        "width": "5",
-        "height": "1",
-        "label": "Acceleròmetre",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "disconnected",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "connected",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 390,
-        "y": 360,
         "wires": []
     },
     {
@@ -465,7 +366,7 @@
         "wires": [
             [
                 "9b0949deebaa2431",
-                "a9db89c0db77012c"
+                "c7c446860547a3a0"
             ]
         ]
     },
@@ -481,37 +382,6 @@
         "complete": "false",
         "x": 410,
         "y": 300,
-        "wires": []
-    },
-    {
-        "id": "7b861d89d1a074d6",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 4,
-        "group": "61285987.c20328",
-        "width": "5",
-        "height": "1",
-        "label": "Brúixola",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "disconnected",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "connected",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 390,
-        "y": 480,
         "wires": []
     },
     {
@@ -531,7 +401,7 @@
         "wires": [
             [
                 "0b3e4f2f015b9876",
-                "7b861d89d1a074d6"
+                "08d2c2ebd8f47c8e"
             ]
         ]
     },
@@ -547,37 +417,6 @@
         "complete": "false",
         "x": 410,
         "y": 420,
-        "wires": []
-    },
-    {
-        "id": "fbce4d15d5aaf976",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 5,
-        "group": "61285987.c20328",
-        "width": "5",
-        "height": "1",
-        "label": "Nivell d'aigua",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "disconnected",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "connected",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 870,
-        "y": 120,
         "wires": []
     },
     {
@@ -597,7 +436,7 @@
         "wires": [
             [
                 "d3c6129c19dca532",
-                "fbce4d15d5aaf976"
+                "55c04d1369c26afc"
             ]
         ]
     },
@@ -616,6 +455,161 @@
         "wires": []
     },
     {
+        "id": "c1dc6168154e2712",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 3,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 400,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "78615ef789b516b4",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 4,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "GPS",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c7c446860547a3a0",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 5,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Giroscopi",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 400,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "08d2c2ebd8f47c8e",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 6,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Brúixola",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 400,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "55c04d1369c26afc",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 7,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Nivell d'aigua",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 880,
+        "y": 120,
+        "wires": []
+    },
+    {
         "id": "daf2b38c629680ab",
         "type": "mqtt in",
         "z": "0965d1af9331699a",
@@ -631,8 +625,8 @@
         "y": 80,
         "wires": [
             [
-                "092fb224923e6f01",
-                "7fee6a5d91cf7209"
+                "7fee6a5d91cf7209",
+                "94f9113cf0ca3d1d"
             ]
         ]
     },
@@ -652,8 +646,8 @@
         "y": 160,
         "wires": [
             [
-                "c2e89b017414b834",
-                "a584961d9b96a8b3"
+                "a584961d9b96a8b3",
+                "3d42a6a454fb5e44"
             ]
         ]
     },
@@ -673,8 +667,8 @@
         "y": 260,
         "wires": [
             [
-                "f070f40e7eca6148",
-                "df439238f2ab065c"
+                "df439238f2ab065c",
+                "720ebf613d5ca7d8"
             ]
         ]
     },
@@ -694,8 +688,8 @@
         "y": 380,
         "wires": [
             [
-                "29765a4739b52adf",
-                "85f08f4ba80282a5"
+                "85f08f4ba80282a5",
+                "f8a611ca6566e49f"
             ]
         ]
     },
@@ -715,8 +709,8 @@
         "y": 496,
         "wires": [
             [
-                "f4b2255b35c4a5de",
-                "c622518ce6e69554"
+                "c622518ce6e69554",
+                "effb3641925bfc87"
             ]
         ]
     },
@@ -736,172 +730,10 @@
         "y": 563,
         "wires": [
             [
-                "0246ac2cbd92f7dd",
-                "f0629ac9738a67d0"
+                "f0629ac9738a67d0",
+                "45bb0fa38686adaf"
             ]
         ]
-    },
-    {
-        "id": "092fb224923e6f01",
-        "type": "ui_gauge",
-        "z": "0965d1af9331699a",
-        "name": "",
-        "group": "41966ddc.701f44",
-        "order": 1,
-        "width": "5",
-        "height": "5",
-        "gtype": "compass",
-        "title": "X",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "50",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 550,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "c2e89b017414b834",
-        "type": "ui_gauge",
-        "z": "0965d1af9331699a",
-        "name": "",
-        "group": "41966ddc.701f44",
-        "order": 2,
-        "width": "5",
-        "height": "5",
-        "gtype": "compass",
-        "title": "Y",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "50",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 590,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "f070f40e7eca6148",
-        "type": "ui_gauge",
-        "z": "0965d1af9331699a",
-        "name": "",
-        "group": "41966ddc.701f44",
-        "order": 3,
-        "width": "5",
-        "height": "5",
-        "gtype": "compass",
-        "title": "Z",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 570,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "29765a4739b52adf",
-        "type": "ui_gauge",
-        "z": "0965d1af9331699a",
-        "name": "",
-        "group": "41966ddc.701f44",
-        "order": 4,
-        "width": "5",
-        "height": "5",
-        "gtype": "wave",
-        "title": "X Rotate",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "65536",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 586,
-        "y": 323,
-        "wires": []
-    },
-    {
-        "id": "f4b2255b35c4a5de",
-        "type": "ui_gauge",
-        "z": "0965d1af9331699a",
-        "name": "",
-        "group": "41966ddc.701f44",
-        "order": 5,
-        "width": "5",
-        "height": "5",
-        "gtype": "wave",
-        "title": "Y Rotate",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 586,
-        "y": 443,
-        "wires": []
-    },
-    {
-        "id": "0246ac2cbd92f7dd",
-        "type": "ui_gauge",
-        "z": "0965d1af9331699a",
-        "name": "",
-        "group": "41966ddc.701f44",
-        "order": 6,
-        "width": "5",
-        "height": "5",
-        "gtype": "wave",
-        "title": "Z Rotate",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 566,
-        "y": 563,
-        "wires": []
     },
     {
         "id": "7fee6a5d91cf7209",
@@ -988,6 +820,168 @@
         "wires": []
     },
     {
+        "id": "94f9113cf0ca3d1d",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "gtype": "compass",
+        "title": "X",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 550,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3d42a6a454fb5e44",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 2,
+        "width": "5",
+        "height": "5",
+        "gtype": "compass",
+        "title": "Y",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 590,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "720ebf613d5ca7d8",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "compass",
+        "title": "Z",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 570,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f8a611ca6566e49f",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 4,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "X Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "65536",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "effb3641925bfc87",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 5,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Y Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 600,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "45bb0fa38686adaf",
+        "type": "ui_gauge",
+        "z": "0965d1af9331699a",
+        "name": "",
+        "group": "41966ddc.701f44",
+        "order": 6,
+        "width": "5",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Z Rotate",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 580,
+        "y": 560,
+        "wires": []
+    },
+    {
         "id": "9e58624.7faaba",
         "type": "mqtt out",
         "z": "d821cc0e9fee2262",
@@ -1020,40 +1014,6 @@
             [
                 "cc79021b.9a751",
                 "21eae8f8.2971b8"
-            ]
-        ]
-    },
-    {
-        "id": "83cf37cf.c76988",
-        "type": "ui_switch",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "label": "POWER",
-        "tooltip": "",
-        "group": "61285987.c20328",
-        "order": 7,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "on",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "off",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": true,
-        "className": "",
-        "x": 160,
-        "y": 520,
-        "wires": [
-            [
-                "9e58624.7faaba"
             ]
         ]
     },
@@ -1107,81 +1067,6 @@
         "wires": []
     },
     {
-        "id": "21eae8f8.2971b8",
-        "type": "ui_chart",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "group": "592e27d40a230c67",
-        "order": 1,
-        "width": "7",
-        "height": "7",
-        "label": "Temperatura",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 381,
-        "y": 374,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "98809a7822b65077",
-        "type": "ui_led",
-        "z": "d821cc0e9fee2262",
-        "order": 6,
-        "group": "61285987.c20328",
-        "width": "5",
-        "height": "1",
-        "label": "Alive indicator",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "disconnected",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "connected",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 370,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "15ea81d0abda17c9",
         "type": "mqtt in",
         "z": "d821cc0e9fee2262",
@@ -1224,50 +1109,6 @@
         "x": 690,
         "y": 140,
         "wires": []
-    },
-    {
-        "id": "d291f23e37563030",
-        "type": "ui_chart",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "group": "592e27d40a230c67",
-        "order": 2,
-        "width": "7",
-        "height": "7",
-        "label": "Nivell d'aigua",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 370,
-        "y": 260,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "e2f881b728020153",
@@ -1314,33 +1155,6 @@
         "wires": []
     },
     {
-        "id": "40dcde2e07b78620",
-        "type": "ui_gauge",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "group": "bcf4c731dd8d45fc",
-        "order": 1,
-        "width": "7",
-        "height": "7",
-        "gtype": "compass",
-        "title": "Brúixola",
-        "label": "graus",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 400,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "8c55ab3d94d69061",
         "type": "mqtt in",
         "z": "d821cc0e9fee2262",
@@ -1375,5 +1189,185 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "83cf37cf.c76988",
+        "type": "ui_switch",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "label": "POWER",
+        "tooltip": "",
+        "group": "61285987.c20328",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "9e58624.7faaba"
+            ]
+        ]
+    },
+    {
+        "id": "40dcde2e07b78620",
+        "type": "ui_gauge",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "group": "bcf4c731dd8d45fc",
+        "order": 1,
+        "width": "7",
+        "height": "7",
+        "gtype": "compass",
+        "title": "Brúixola",
+        "label": "graus",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 400,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "21eae8f8.2971b8",
+        "type": "ui_chart",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "group": "592e27d40a230c67",
+        "order": 1,
+        "width": "7",
+        "height": "7",
+        "label": "Temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 381,
+        "y": 374,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d291f23e37563030",
+        "type": "ui_chart",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "group": "592e27d40a230c67",
+        "order": 2,
+        "width": "7",
+        "height": "7",
+        "label": "Nivell d'aigua",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 370,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98809a7822b65077",
+        "type": "ui_led",
+        "z": "d821cc0e9fee2262",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "Alive indicator",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "disconnected",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "connected",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 370,
+        "y": 120,
+        "wires": []
     }
 ]
