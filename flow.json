@@ -511,18 +511,51 @@
                 "p": "payload"
             }
         ],
-        "repeat": "",
+        "repeat": "1",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 230,
+        "x": 240,
         "y": 240,
         "wires": [
-            []
+            [
+                "febf3e29030209b2"
+            ]
         ]
+    },
+    {
+        "id": "febf3e29030209b2",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 240,
+        "wires": []
     },
     {
         "id": "daf2b38c629680ab",
