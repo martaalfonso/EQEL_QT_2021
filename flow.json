@@ -284,14 +284,14 @@
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
         "name": "",
-        "topic": "esp32/alive_temperature",
+        "topic": "esp32/estat_ta",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 150,
+        "x": 120,
         "y": 80,
         "wires": [
             [
@@ -319,7 +319,7 @@
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
         "name": "",
-        "topic": "esp32/alive_gps",
+        "topic": "esp32/estat_gps",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
@@ -424,7 +424,7 @@
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
         "name": "",
-        "topic": "esp32/alive_nivell",
+        "topic": "esp32/estat_ind",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
@@ -607,6 +607,72 @@
         "name": "",
         "x": 880,
         "y": 120,
+        "wires": []
+    },
+    {
+        "id": "569cfb04f7ef1be4",
+        "type": "mqtt in",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "topic": "esp32/estat_current",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "418ca11f30d8d97c",
+                "371480660882a363"
+            ]
+        ]
+    },
+    {
+        "id": "418ca11f30d8d97c",
+        "type": "debug",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "371480660882a363",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 5,
+        "group": "61285987.c20328",
+        "width": 0,
+        "height": 0,
+        "label": "Giroscopi",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 880,
+        "y": 340,
         "wires": []
     },
     {
