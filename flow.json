@@ -296,7 +296,7 @@
         "wires": [
             [
                 "793df4709efae295",
-                "a5de287a37505b23"
+                "9319a9ba9c685643"
             ]
         ]
     },
@@ -330,7 +330,8 @@
         "y": 200,
         "wires": [
             [
-                "8dc67c15df9cd1f4"
+                "8dc67c15df9cd1f4",
+                "eb4e23e9dbfb569c"
             ]
         ]
     },
@@ -364,7 +365,8 @@
         "y": 320,
         "wires": [
             [
-                "9b0949deebaa2431"
+                "9b0949deebaa2431",
+                "3cd336405a98aebe"
             ]
         ]
     },
@@ -398,7 +400,8 @@
         "y": 440,
         "wires": [
             [
-                "0b3e4f2f015b9876"
+                "0b3e4f2f015b9876",
+                "9b5df2e59c8fa9c0"
             ]
         ]
     },
@@ -432,7 +435,8 @@
         "y": 80,
         "wires": [
             [
-                "d3c6129c19dca532"
+                "d3c6129c19dca532",
+                "fc2e4d69e94719b2"
             ]
         ]
     },
@@ -466,7 +470,8 @@
         "y": 300,
         "wires": [
             [
-                "418ca11f30d8d97c"
+                "418ca11f30d8d97c",
+                "a66159577078965c"
             ]
         ]
     },
@@ -483,23 +488,6 @@
         "x": 890,
         "y": 280,
         "wires": []
-    },
-    {
-        "id": "a5de287a37505b23",
-        "type": "function",
-        "z": "9f98de58bc05c7b9",
-        "name": "",
-        "func": "if(msg.payload.name === \"true\"){\nmsg.payload = true;\n}\nif(msg.payload.name === \"false\"){\nmsg.payload = false;\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 280,
-        "y": 120,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "febf3e29030209b2",
@@ -528,32 +516,9 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 390,
-        "y": 240,
+        "x": 610,
+        "y": 540,
         "wires": []
-    },
-    {
-        "id": "34a46410879c9d06",
-        "type": "inject",
-        "z": "9f98de58bc05c7b9",
-        "name": "Dummy",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 640,
-        "y": 200,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "e0cc1e701ac17cef",
@@ -581,13 +546,199 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 220,
-        "y": 260,
+        "x": 320,
+        "y": 540,
         "wires": [
             [
                 "febf3e29030209b2"
             ]
         ]
+    },
+    {
+        "id": "9319a9ba9c685643",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "Temperatura",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "eb4e23e9dbfb569c",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "GPS",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9b5df2e59c8fa9c0",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "Brúixola",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fc2e4d69e94719b2",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "Inundació",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 870,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a66159577078965c",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "Hall",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 870,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3cd336405a98aebe",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 2,
+        "group": "61285987.c20328",
+        "width": "5",
+        "height": "1",
+        "label": "MPU6050",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 390,
+        "y": 340,
+        "wires": []
     },
     {
         "id": "daf2b38c629680ab",
