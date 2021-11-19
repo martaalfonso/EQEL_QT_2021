@@ -1334,7 +1334,7 @@
         "dot": false,
         "ymin": "15",
         "ymax": "30",
-        "removeOlder": "60",
+        "removeOlder": "10",
         "removeOlderPoints": "",
         "removeOlderUnit": "1",
         "cutout": 0,
