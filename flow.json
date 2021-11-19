@@ -364,8 +364,7 @@
         "y": 320,
         "wires": [
             [
-                "9b0949deebaa2431",
-                "c7c446860547a3a0"
+                "9b0949deebaa2431"
             ]
         ]
     },
@@ -399,8 +398,7 @@
         "y": 440,
         "wires": [
             [
-                "0b3e4f2f015b9876",
-                "08d2c2ebd8f47c8e"
+                "0b3e4f2f015b9876"
             ]
         ]
     },
@@ -434,8 +432,7 @@
         "y": 80,
         "wires": [
             [
-                "d3c6129c19dca532",
-                "55c04d1369c26afc"
+                "d3c6129c19dca532"
             ]
         ]
     },
@@ -454,161 +451,6 @@
         "wires": []
     },
     {
-        "id": "c1dc6168154e2712",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 3,
-        "group": "61285987.c20328",
-        "width": 0,
-        "height": 0,
-        "label": "Temperatura",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 430,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "78615ef789b516b4",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 4,
-        "group": "61285987.c20328",
-        "width": 0,
-        "height": 0,
-        "label": "GPS",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": false,
-        "name": "",
-        "x": 390,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "c7c446860547a3a0",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 5,
-        "group": "61285987.c20328",
-        "width": 0,
-        "height": 0,
-        "label": "MPU6050",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 400,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "08d2c2ebd8f47c8e",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 6,
-        "group": "61285987.c20328",
-        "width": 0,
-        "height": 0,
-        "label": "Brúixola",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 400,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "55c04d1369c26afc",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 7,
-        "group": "61285987.c20328",
-        "width": 0,
-        "height": 0,
-        "label": "Nivell d'aigua",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 880,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "569cfb04f7ef1be4",
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
@@ -624,8 +466,7 @@
         "y": 300,
         "wires": [
             [
-                "418ca11f30d8d97c",
-                "371480660882a363"
+                "418ca11f30d8d97c"
             ]
         ]
     },
@@ -644,37 +485,6 @@
         "wires": []
     },
     {
-        "id": "371480660882a363",
-        "type": "ui_led",
-        "z": "9f98de58bc05c7b9",
-        "order": 5,
-        "group": "61285987.c20328",
-        "width": 0,
-        "height": 0,
-        "label": "Sensor Hall",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 880,
-        "y": 340,
-        "wires": []
-    },
-    {
         "id": "a5de287a37505b23",
         "type": "function",
         "z": "9f98de58bc05c7b9",
@@ -688,9 +498,7 @@
         "x": 280,
         "y": 120,
         "wires": [
-            [
-                "c1dc6168154e2712"
-            ]
+            []
         ]
     },
     {
@@ -713,9 +521,7 @@
         "x": 230,
         "y": 240,
         "wires": [
-            [
-                "78615ef789b516b4"
-            ]
+            []
         ]
     },
     {
