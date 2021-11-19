@@ -569,7 +569,7 @@
             {
                 "color": "#ff0000",
                 "value": "0",
-                "valueType": "str"
+                "valueType": "num"
             },
             {
                 "color": "#008000",
