@@ -296,7 +296,7 @@
         "wires": [
             [
                 "793df4709efae295",
-                "c1dc6168154e2712"
+                "a5de287a37505b23"
             ]
         ]
     },
@@ -481,7 +481,7 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 400,
+        "x": 430,
         "y": 120,
         "wires": []
     },
@@ -674,6 +674,25 @@
         "x": 880,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "a5de287a37505b23",
+        "type": "function",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "func": "if(msg.payload.name === \"true\"){\nmsg.payload = true;\n}\nif(msg.payload.name === \"false\"){\nmsg.payload = false;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "c1dc6168154e2712"
+            ]
+        ]
     },
     {
         "id": "daf2b38c629680ab",
