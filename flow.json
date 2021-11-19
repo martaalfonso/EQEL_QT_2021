@@ -389,7 +389,7 @@
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
         "name": "",
-        "topic": "esp32/alive_bruixola",
+        "topic": "esp32/estat_bruixola",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
