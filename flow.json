@@ -502,31 +502,6 @@
         ]
     },
     {
-        "id": "8e6b9da4fbc0551e",
-        "type": "inject",
-        "z": "9f98de58bc05c7b9",
-        "name": "Dummy",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 240,
-        "y": 240,
-        "wires": [
-            [
-                "febf3e29030209b2"
-            ]
-        ]
-    },
-    {
         "id": "febf3e29030209b2",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
@@ -556,6 +531,63 @@
         "x": 390,
         "y": 240,
         "wires": []
+    },
+    {
+        "id": "34a46410879c9d06",
+        "type": "inject",
+        "z": "9f98de58bc05c7b9",
+        "name": "Dummy",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e0cc1e701ac17cef",
+        "type": "ui_switch",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "61285987.c20328",
+        "order": 2,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 220,
+        "y": 260,
+        "wires": [
+            [
+                "febf3e29030209b2"
+            ]
+        ]
     },
     {
         "id": "daf2b38c629680ab",
