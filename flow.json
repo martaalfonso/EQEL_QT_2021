@@ -1178,8 +1178,7 @@
         "y": 231,
         "wires": [
             [
-                "22efa7b7.544a28",
-                "d291f23e37563030"
+                "22efa7b7.544a28"
             ]
         ]
     },
@@ -1422,50 +1421,6 @@
         "className": "",
         "x": 381,
         "y": 374,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d291f23e37563030",
-        "type": "ui_chart",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "group": "2765f66b230c1565",
-        "order": 1,
-        "width": "7",
-        "height": "7",
-        "label": "Nivell d'aigua",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 370,
-        "y": 260,
         "wires": [
             []
         ]
