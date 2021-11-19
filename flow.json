@@ -509,7 +509,7 @@
         ],
         "allowColorForValueInMessage": false,
         "shape": "circle",
-        "showGlow": true,
+        "showGlow": false,
         "name": "",
         "x": 390,
         "y": 240,
