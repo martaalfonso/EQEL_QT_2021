@@ -1137,7 +1137,7 @@
         "type": "mqtt in",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "topic": "esp32/alive",
+        "topic": "esp32/current",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
@@ -1148,7 +1148,8 @@
         "y": 80,
         "wires": [
             [
-                "cd4ac14b6e66ba23"
+                "cd4ac14b6e66ba23",
+                "2d9d117c53fb470b"
             ]
         ]
     },
@@ -1365,8 +1366,8 @@
         "type": "ui_chart",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "group": "592e27d40a230c67",
-        "order": 2,
+        "group": "2765f66b230c1565",
+        "order": 1,
         "width": "7",
         "height": "7",
         "label": "Nivell d'aigua",
@@ -1403,5 +1404,32 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "2d9d117c53fb470b",
+        "type": "ui_gauge",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "group": "592e27d40a230c67",
+        "order": 2,
+        "width": "7",
+        "height": "7",
+        "gtype": "gage",
+        "title": "Current",
+        "label": "graus",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "7",
+        "seg2": "9.1",
+        "className": "",
+        "x": 380,
+        "y": 120,
+        "wires": []
     }
 ]
