@@ -599,12 +599,12 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "0",
+                "value": "0.00",
                 "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "1",
+                "value": "1.00",
                 "valueType": "str"
             }
         ],
@@ -630,12 +630,12 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "0",
+                "value": "0.00",
                 "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "1",
+                "value": "1.00",
                 "valueType": "str"
             }
         ],
@@ -661,12 +661,12 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "0",
+                "value": "0.00",
                 "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "1",
+                "value": "1.00",
                 "valueType": "str"
             }
         ],
@@ -692,12 +692,12 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "0",
+                "value": "0.00",
                 "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "1",
+                "value": "1.00",
                 "valueType": "str"
             }
         ],
@@ -723,12 +723,12 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "0",
+                "value": "0.00",
                 "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "1",
+                "value": "1.00",
                 "valueType": "str"
             }
         ],
