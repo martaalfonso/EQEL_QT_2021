@@ -697,7 +697,7 @@
         "id": "8e6b9da4fbc0551e",
         "type": "inject",
         "z": "9f98de58bc05c7b9",
-        "name": "",
+        "name": "Dummy",
         "props": [
             {
                 "p": "payload"
@@ -708,7 +708,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
+        "payload": "false",
         "payloadType": "bool",
         "x": 230,
         "y": 240,
