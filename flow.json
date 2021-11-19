@@ -516,12 +516,12 @@
             {
                 "color": "#ff0000",
                 "value": "false",
-                "valueType": "bool"
+                "valueType": "str"
             },
             {
                 "color": "#008000",
                 "value": "true",
-                "valueType": "bool"
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
