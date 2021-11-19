@@ -568,12 +568,12 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "0",
+                "value": "48",
                 "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "1",
+                "value": "49",
                 "valueType": "str"
             }
         ],
