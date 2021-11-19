@@ -1416,7 +1416,7 @@
         "height": "7",
         "gtype": "gage",
         "title": "Current",
-        "label": "graus",
+        "label": "ampers",
         "format": "{{value}}",
         "min": 0,
         "max": 10,
