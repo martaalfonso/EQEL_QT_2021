@@ -568,13 +568,13 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "48",
+                "value": "0",
                 "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "49",
-                "valueType": "str"
+                "value": "1",
+                "valueType": "num"
             }
         ],
         "allowColorForValueInMessage": false,
