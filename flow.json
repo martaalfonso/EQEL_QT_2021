@@ -1148,8 +1148,7 @@
         "y": 80,
         "wires": [
             [
-                "cd4ac14b6e66ba23",
-                "98809a7822b65077"
+                "cd4ac14b6e66ba23"
             ]
         ]
     },
@@ -1404,36 +1403,5 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "98809a7822b65077",
-        "type": "ui_led",
-        "z": "d821cc0e9fee2262",
-        "order": 2,
-        "group": "61285987.c20328",
-        "width": "5",
-        "height": "1",
-        "label": "Alive indicator",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "disconnected",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "connected",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 370,
-        "y": 120,
-        "wires": []
     }
 ]
