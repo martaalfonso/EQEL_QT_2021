@@ -354,7 +354,7 @@
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
         "name": "",
-        "topic": "esp32/alive_gyro",
+        "topic": "esp32/estat_mpu",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
@@ -468,13 +468,13 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
+                "value": "0",
+                "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
+                "value": "1",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
@@ -499,13 +499,13 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
+                "value": "0",
+                "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
+                "value": "1",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
@@ -530,13 +530,13 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
+                "value": "0",
+                "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
+                "value": "1",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
@@ -561,13 +561,13 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
+                "value": "0",
+                "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
+                "value": "1",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
@@ -592,13 +592,13 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
+                "value": "0",
+                "valueType": "str"
             },
             {
                 "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
+                "value": "1",
+                "valueType": "str"
             }
         ],
         "allowColorForValueInMessage": false,
