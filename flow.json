@@ -1573,7 +1573,7 @@
         "label": "motor1",
         "tooltip": "",
         "group": "3e3fa0e6dd89bced",
-        "order": 0,
+        "order": 2,
         "width": "6",
         "height": "1",
         "passthru": true,
