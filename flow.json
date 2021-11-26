@@ -288,6 +288,17 @@
         }
     },
     {
+        "id": "3e3fa0e6dd89bced",
+        "type": "ui_group",
+        "name": "Control",
+        "tab": "e7c46d5e.a1283",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "ed8ad9234c69a730",
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
@@ -1517,5 +1528,129 @@
                 "1415728152e67db6"
             ]
         ]
+    },
+    {
+        "id": "65386ab26a6c134d",
+        "type": "mqtt out",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "topic": "esp32/motor1",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "10e78a89.5b4fd5",
+        "x": 520,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a5d9766cbfbf514d",
+        "type": "mqtt out",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "topic": "esp32/motor2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "10e78a89.5b4fd5",
+        "x": 540,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "08a5bbd616e0435b",
+        "type": "ui_slider",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "label": "motor1",
+        "tooltip": "",
+        "group": "3e3fa0e6dd89bced",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "10",
+        "className": "",
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "65386ab26a6c134d",
+                "c4bfcc5a982fa3fa"
+            ]
+        ]
+    },
+    {
+        "id": "0ae9266193b156fc",
+        "type": "ui_slider",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "label": "motor2",
+        "tooltip": "",
+        "group": "3e3fa0e6dd89bced",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "10",
+        "className": "",
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "a5d9766cbfbf514d",
+                "b97f87402cfe0e35"
+            ]
+        ]
+    },
+    {
+        "id": "c4bfcc5a982fa3fa",
+        "type": "debug",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b97f87402cfe0e35",
+        "type": "debug",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 300,
+        "wires": []
     }
 ]
