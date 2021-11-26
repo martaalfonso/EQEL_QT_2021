@@ -7,14 +7,14 @@
 /*******************************************************************************
  * IO DEFINITION                                                                *
  *******************************************************************************/
-#define RIGHT_PWM 3
+#define RIGHT_PWM 2
 #define LEFT_PWM  4
 #define PWM1_Ch    0
 #define PWM1_Res   8
 #define PWM1_Freq  5000
 #define PWM2_Ch    1
-#define CONTROL_RIGHT 4
-#define CONTROL_LEFT  5
+#define CONTROL_RIGHT 5
+#define CONTROL_LEFT  18
 
 
 
@@ -29,8 +29,10 @@ unsigned char left_motor;
 unsigned char switch_on;
 const char* ssid = "iPhone de: Marta";
 const char* password = "test1234";
-const char* mqtt_server = "172.20.10.8";
-
+const char* mqtt_server = "172.20.10.14";
+long lastMsg = 0;
+char msg[50];
+int value = 0;
 
 /*******************************************************************************
  * OBJECTS                                                                     *
@@ -44,7 +46,11 @@ PubSubClient client(espClient);
 
 // The setup routine runs once when you press reset.
 void setup() {
-  Serial.begin(115200);                
+  Serial.begin(115200);
+  //init wifi
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);                
   // Initialize the PWM and DIR pins as digital outputs.
   pinMode(RIGHT_PWM, OUTPUT);
   ledcAttachPin(RIGHT_PWM, PWM1_Ch);
@@ -56,45 +62,6 @@ void setup() {
   
   pinMode(CONTROL_LEFT, OUTPUT);
   pinMode(CONTROL_RIGHT, OUTPUT);
-
-  //init wifi
-  setup_wifi();
-  client.setServer(mqtt_server, 1883);
-  client.setCallback(callback);
-}
-
-
-
-// The loop routine runs over and over again forever.
-void loop() {
-
-  if(switch_on == 1)
-  {
-    //DIRECCIÓ EN FUNCIÓ DE LA COMANDA DE LA INTERFÍCIE
-    
-    lectura_right_motor  = 20;  //AQUÍ VA LA LECTURA PER WIFI DE LA PALANCA DRETA
-    lectura_left_motor = 20;    //AQUÍ VA LA LECTURA PER WIFI DE LA PALANCA ESQUERRA
-    digitalWrite(CONTROL_RIGHT, HIGH);
-    digitalWrite(CONTROL_LEFT, HIGH);
-    
-    
-    right_motor = map(lectura_right_motor, 0, 100, 0, 50);
-    left_motor = map(lectura_left_motor, 0, 100, 0, 50);
-
-    ledcWrite(PWM1_Ch, right_motor);
-    ledcWrite(PWM2_Ch, left_motor);
-
-  }
-  else
-  {
-    digitalWrite(CONTROL_RIGHT, LOW);
-    digitalWrite(CONTROL_LEFT, LOW);      
-  }
-  
-  if (!client.connected()) {
-    reconnect();
-  }
-  client.loop();
 }
 
 void setup_wifi() {
@@ -131,7 +98,7 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   // Feel free to add more if statements to control more GPIOs with MQTT
 
-  // If a message is received on the topic esp32/output, you check if the message is either "on" or "off". 
+  // If a message is received on the topic esp32/POWER, you check if the message is either "on" or "off". 
   // Changes the output state according to the message
   if (String(topic) == "esp32/POWER") {
     Serial.print("Changing output to ");
@@ -139,15 +106,18 @@ void callback(char* topic, byte* message, unsigned int length) {
       Serial.println("on");
       switch_on = 1;
       //digitalWrite(ledPin, HIGH);
+      digitalWrite(CONTROL_RIGHT, HIGH);
+      ledcWrite(PWM1_Ch, 100);
+      
     }
     else if(messageTemp == "off"){
       Serial.println("off");
       switch_on = 0;
-      //digitalWrite(ledPin, LOW);
+      digitalWrite(CONTROL_RIGHT, HIGH);
+      ledcWrite(PWM1_Ch, 0);
     }
   }
 }
-
 void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {
@@ -156,7 +126,7 @@ void reconnect() {
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       // Subscribe
-      client.subscribe("esp32/output");
+      client.subscribe("esp32/POWER");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -165,4 +135,37 @@ void reconnect() {
       delay(5000);
     }
   }
+}
+
+
+// The loop routine runs over and over again forever.
+void loop() {
+  /*
+  if(switch_on == 1)
+  {
+    //DIRECCIÓ EN FUNCIÓ DE LA COMANDA DE LA INTERFÍCIE
+    
+    lectura_right_motor  = 20;  //AQUÍ VA LA LECTURA PER WIFI DE LA PALANCA DRETA
+    lectura_left_motor = 20;    //AQUÍ VA LA LECTURA PER WIFI DE LA PALANCA ESQUERRA
+    digitalWrite(CONTROL_RIGHT, HIGH);
+    digitalWrite(CONTROL_LEFT, HIGH);
+    
+    
+    right_motor = map(lectura_right_motor, 0, 100, 0, 50);
+    left_motor = map(lectura_left_motor, 0, 100, 0, 50);
+
+    ledcWrite(PWM1_Ch, right_motor);
+    ledcWrite(PWM2_Ch, left_motor);
+
+  }
+  else
+  {
+    digitalWrite(CONTROL_RIGHT, LOW);
+    digitalWrite(CONTROL_LEFT, LOW);      
+  }
+  */
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
 }

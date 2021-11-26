@@ -9,7 +9,7 @@ const char* password = "test1234";
 
 // Add your MQTT Broker IP address, example:
 //const char* mqtt_server = "192.168.1.144";
-const char* mqtt_server = "172.20.10.8"; //YOUR_MQTT_BROKER_IP_ADDRESS
+const char* mqtt_server = "172.20.10.14"; //YOUR_MQTT_BROKER_IP_ADDRESS
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -68,7 +68,7 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   // If a message is received on the topic esp32/output, you check if the message is either "on" or "off". 
   // Changes the output state according to the message
-  if (String(topic) == "esp32/output") {
+  if (String(topic) == "esp32/POWER") {
     Serial.print("Changing output to ");
     if(messageTemp == "on"){
       Serial.println("on");
