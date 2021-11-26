@@ -1142,7 +1142,7 @@
         "type": "mqtt out",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "topic": "esp32/output",
+        "topic": "esp32/POWER",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1151,7 +1151,7 @@
         "correl": "",
         "expiry": "",
         "broker": "10e78a89.5b4fd5",
-        "x": 390,
+        "x": 400,
         "y": 580,
         "wires": []
     },
