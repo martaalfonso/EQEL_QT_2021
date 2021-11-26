@@ -1142,7 +1142,7 @@
         "type": "mqtt out",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "topic": "esp32/power",
+        "topic": "esp32/output",
         "qos": "",
         "retain": "",
         "respTopic": "",
