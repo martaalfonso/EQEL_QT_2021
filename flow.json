@@ -1602,7 +1602,7 @@
         "tooltip": "",
         "group": "3e3fa0e6dd89bced",
         "order": 1,
-        "width": "5",
+        "width": "6",
         "height": "1",
         "passthru": true,
         "outs": "all",
