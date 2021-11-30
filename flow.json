@@ -1530,6 +1530,110 @@
         ]
     },
     {
+        "id": "52813fb5e21c7816",
+        "type": "mqtt in",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "topic": "esp32/GPS_data",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 680,
+        "wires": [
+            [
+                "e6171cb03737aec0",
+                "5b4788f4efe857b1"
+            ]
+        ]
+    },
+    {
+        "id": "e6171cb03737aec0",
+        "type": "debug",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "734487e027bd9a84",
+        "type": "function",
+        "z": "d821cc0e9fee2262",
+        "name": "convert",
+        "func": "return{\n    payload: {\n        lon: msg.payload.longitude,\n        lat: msg.payload.latitude,\n        name: \"Barcelona\",\n        popped: true\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 720,
+        "wires": [
+            [
+                "30e37e4a6bb7eb51"
+            ]
+        ]
+    },
+    {
+        "id": "30e37e4a6bb7eb51",
+        "type": "worldmap",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS,SW",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 720,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "5b4788f4efe857b1",
+        "type": "json",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 720,
+        "wires": [
+            [
+                "734487e027bd9a84"
+            ]
+        ]
+    },
+    {
         "id": "65386ab26a6c134d",
         "type": "mqtt out",
         "z": "ce0c5f0bae4cb7d0",
