@@ -21,9 +21,11 @@
 /*******************************************************************************
  * PRIVATE GLOBAL VARIABLES                                                     *
  ******************************************************************************/
+String motor1;
+String motor2;
 unsigned char valor;
-unsigned char lectura_right_motor;
-unsigned char lectura_left_motor;
+int lectura_right_motor;
+int lectura_left_motor;
 unsigned char right_motor;
 unsigned char left_motor;
 unsigned char switch_on;
@@ -117,6 +119,25 @@ void callback(char* topic, byte* message, unsigned int length) {
       ledcWrite(PWM1_Ch, 0);
     }
   }
+
+  if(String(topic) == "esp32/motor1")
+  {
+    motor1 = messageTemp;
+    lectura_right_motor  = motor1.toInt();
+    digitalWrite(CONTROL_RIGHT, HIGH);
+    right_motor = map(lectura_right_motor, 0, 100, 0, 50);
+    ledcWrite(PWM1_Ch, right_motor);
+  }
+
+  if(String(topic) == "esp32/motor2")
+  {
+    motor2 = messageTemp;
+    lectura_left_motor  = motor2.toInt();
+    digitalWrite(CONTROL_LEFT, HIGH);
+    right_motor = map(lectura_left_motor, 0, 100, 0, 50);
+    ledcWrite(PWM1_Ch, left_motor);
+  }
+  
 }
 void reconnect() {
   // Loop until we're reconnected
