@@ -2,9 +2,9 @@
     {
         "id": "d821cc0e9fee2262",
         "type": "tab",
-        "label": "Comunicacions",
+        "label": "Sensors",
         "disabled": false,
-        "info": "Primera prova de comunicacions",
+        "info": "",
         "env": []
     },
     {
@@ -1138,24 +1138,6 @@
         "wires": []
     },
     {
-        "id": "9e58624.7faaba",
-        "type": "mqtt out",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "topic": "esp32/power",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "10e78a89.5b4fd5",
-        "x": 390,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "abf7079a.653be8",
         "type": "mqtt in",
         "z": "d821cc0e9fee2262",
@@ -1355,40 +1337,6 @@
         "y": 200,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "83cf37cf.c76988",
-        "type": "ui_switch",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "label": "POWER",
-        "tooltip": "",
-        "group": "61285987.c20328",
-        "order": 1,
-        "width": "5",
-        "height": "1",
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "topicType": "str",
-        "style": "",
-        "onvalue": "on",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "off",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": true,
-        "className": "",
-        "x": 140,
-        "y": 580,
-        "wires": [
-            [
-                "9e58624.7faaba"
-            ]
         ]
     },
     {
@@ -1812,5 +1760,57 @@
         "x": 510,
         "y": 320,
         "wires": []
+    },
+    {
+        "id": "5288d8b228548357",
+        "type": "mqtt out",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "topic": "esp32/power",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "10e78a89.5b4fd5",
+        "x": 490,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "2fcac8b744443e43",
+        "type": "ui_switch",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "label": "POWER",
+        "tooltip": "",
+        "group": "61285987.c20328",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 240,
+        "y": 580,
+        "wires": [
+            [
+                "5288d8b228548357"
+            ]
+        ]
     }
 ]
