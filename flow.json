@@ -10,7 +10,7 @@
     {
         "id": "ce0c5f0bae4cb7d0",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Motors",
         "disabled": false,
         "info": "",
         "env": []
@@ -1665,8 +1665,8 @@
         "correl": "",
         "expiry": "",
         "broker": "10e78a89.5b4fd5",
-        "x": 540,
-        "y": 240,
+        "x": 520,
+        "y": 360,
         "wires": []
     },
     {
@@ -1687,13 +1687,14 @@
         "min": 0,
         "max": "100",
         "step": "10",
-        "className": "<style> .sliderGrid{     display: grid;     grid-template-columns: 85% 25px;     margin-left: 25px; }  .lightSlider {     float:right;     width: 100%    } .lightSlider .md-thumb:after, .lightSlider .md-track{     background-color: #FA9900 !important;     border-color: #FA9900 !important; } .lightSlider .md-focus-thumb, .lightSlider .md-focus-ring{     background-color: #FA9900; } .dimValue {   clear: right;    margin: 10px; 0 0 7px;   }  </style>",
+        "className": "",
         "x": 260,
         "y": 200,
         "wires": [
             [
                 "65386ab26a6c134d",
-                "c4bfcc5a982fa3fa"
+                "c4bfcc5a982fa3fa",
+                "52dafa671c9cd0aa"
             ]
         ]
     },
@@ -1716,12 +1717,13 @@
         "max": "100",
         "step": "10",
         "className": "",
-        "x": 260,
-        "y": 300,
+        "x": 240,
+        "y": 420,
         "wires": [
             [
                 "a5d9766cbfbf514d",
-                "b97f87402cfe0e35"
+                "b97f87402cfe0e35",
+                "c077141757e872ef"
             ]
         ]
     },
@@ -1753,8 +1755,62 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
-        "y": 300,
+        "x": 510,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "52dafa671c9cd0aa",
+        "type": "ui_gauge",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "group": "3e3fa0e6dd89bced",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Motor 1",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "70",
+        "className": "",
+        "x": 510,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c077141757e872ef",
+        "type": "ui_gauge",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "group": "3e3fa0e6dd89bced",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Motor 2",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "70",
+        "className": "",
+        "x": 510,
+        "y": 320,
         "wires": []
     }
 ]
