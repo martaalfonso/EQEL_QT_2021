@@ -104,17 +104,6 @@
         "className": ""
     },
     {
-        "id": "bcf4c731dd8d45fc",
-        "type": "ui_group",
-        "name": "Brúixola",
-        "tab": "e7c46d5e.a1283",
-        "order": 5,
-        "disp": true,
-        "width": "4",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "592e27d40a230c67",
         "type": "ui_group",
         "name": "Interior vaixell",
@@ -1289,8 +1278,8 @@
         "type": "ui_gauge",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "group": "bcf4c731dd8d45fc",
-        "order": 1,
+        "group": "61285987.c20328",
+        "order": 7,
         "width": 4,
         "height": 4,
         "gtype": "compass",
