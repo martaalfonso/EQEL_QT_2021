@@ -309,46 +309,6 @@
         "height": 1
     },
     {
-        "id": "f7a14d517ebb10e7",
-        "type": "ui_spacer",
-        "z": "9f98de58bc05c7b9",
-        "name": "spacer",
-        "group": "bcf4c731dd8d45fc",
-        "order": 2,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "31f9d2e8eefc8e00",
-        "type": "ui_spacer",
-        "z": "9f98de58bc05c7b9",
-        "name": "spacer",
-        "group": "bcf4c731dd8d45fc",
-        "order": 3,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "4c3e36d54f1743c0",
-        "type": "ui_spacer",
-        "z": "9f98de58bc05c7b9",
-        "name": "spacer",
-        "group": "bcf4c731dd8d45fc",
-        "order": 4,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "7c4f59b7f90c6b20",
-        "type": "ui_spacer",
-        "z": "9f98de58bc05c7b9",
-        "name": "spacer",
-        "group": "bcf4c731dd8d45fc",
-        "order": 5,
-        "width": 1,
-        "height": 1
-    },
-    {
         "id": "ed8ad9234c69a730",
         "type": "mqtt in",
         "z": "9f98de58bc05c7b9",
