@@ -1458,7 +1458,7 @@
         "group": "592e27d40a230c67",
         "order": 1,
         "width": "4",
-        "height": "4",
+        "height": "5",
         "gtype": "gage",
         "title": "Current",
         "label": "A",
