@@ -299,27 +299,17 @@
         "className": ""
     },
     {
-        "id": "1df2749bdac1bcaa",
+        "id": "0fb6ca9b4bf7f307",
         "type": "ui_spacer",
         "z": "9f98de58bc05c7b9",
         "name": "spacer",
         "group": "1223e2e1456a7e0d",
-        "order": 1,
-        "width": 2,
+        "order": 2,
+        "width": 4,
         "height": 1
     },
     {
-        "id": "671e5796a16bfd33",
-        "type": "ui_spacer",
-        "z": "9f98de58bc05c7b9",
-        "name": "spacer",
-        "group": "1223e2e1456a7e0d",
-        "order": 3,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "f7915129c1a98306",
+        "id": "f7a14d517ebb10e7",
         "type": "ui_spacer",
         "z": "9f98de58bc05c7b9",
         "name": "spacer",
@@ -329,7 +319,7 @@
         "height": 1
     },
     {
-        "id": "07f0c0bc6d777f49",
+        "id": "31f9d2e8eefc8e00",
         "type": "ui_spacer",
         "z": "9f98de58bc05c7b9",
         "name": "spacer",
@@ -339,7 +329,7 @@
         "height": 1
     },
     {
-        "id": "f4308c8ef72ba804",
+        "id": "4c3e36d54f1743c0",
         "type": "ui_spacer",
         "z": "9f98de58bc05c7b9",
         "name": "spacer",
@@ -349,7 +339,7 @@
         "height": 1
     },
     {
-        "id": "2e143876d19db5e5",
+        "id": "7c4f59b7f90c6b20",
         "type": "ui_spacer",
         "z": "9f98de58bc05c7b9",
         "name": "spacer",
@@ -1620,7 +1610,7 @@
         "label": "motor1",
         "tooltip": "",
         "group": "1223e2e1456a7e0d",
-        "order": 4,
+        "order": 3,
         "width": 1,
         "height": 8,
         "passthru": true,
@@ -1649,7 +1639,7 @@
         "label": "motor2",
         "tooltip": "",
         "group": "1223e2e1456a7e0d",
-        "order": 5,
+        "order": 4,
         "width": 1,
         "height": 8,
         "passthru": true,
@@ -1708,7 +1698,7 @@
         "z": "ce0c5f0bae4cb7d0",
         "name": "",
         "group": "1223e2e1456a7e0d",
-        "order": 6,
+        "order": 5,
         "width": 5,
         "height": 4,
         "gtype": "gage",
@@ -1735,7 +1725,7 @@
         "z": "ce0c5f0bae4cb7d0",
         "name": "",
         "group": "1223e2e1456a7e0d",
-        "order": 7,
+        "order": 6,
         "width": 5,
         "height": 4,
         "gtype": "gage",
@@ -1782,7 +1772,7 @@
         "label": "POWER",
         "tooltip": "",
         "group": "1223e2e1456a7e0d",
-        "order": 2,
+        "order": 1,
         "width": 3,
         "height": 1,
         "passthru": true,
