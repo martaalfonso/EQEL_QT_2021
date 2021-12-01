@@ -1687,7 +1687,7 @@
         "min": 0,
         "max": "100",
         "step": "10",
-        "className": "",
+        "className": "<div ng-repeat=\"(key, value) in msg.fixturesettings\">     <div style=\"display:inline;width:20%\">{{value.label}}</div>     <div style=\"float:right;width:80%\"><md-slider min=\"0\" max=\"100\" step=\"{{value.resolution}}\" ng-model=\"value.setting.brightness\" ng-change=\"send({action: 'bri', topic: key, brightness: value.setting.brightness})\"></md-slider></div>",
         "x": 260,
         "y": 200,
         "wires": [
