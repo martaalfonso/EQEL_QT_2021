@@ -106,7 +106,7 @@
     {
         "id": "592e27d40a230c67",
         "type": "ui_group",
-        "name": "Interior vaixell",
+        "name": "Bateria",
         "tab": "e7c46d5e.a1283",
         "order": 2,
         "disp": true,
@@ -1119,7 +1119,7 @@
         "rap": false,
         "inputs": 0,
         "x": 160,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "22efa7b7.544a28",
@@ -1141,7 +1141,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 370,
-        "y": 198,
+        "y": 258,
         "wires": []
     },
     {
@@ -1157,7 +1157,7 @@
         "rap": false,
         "inputs": 0,
         "x": 170,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "cd4ac14b6e66ba23",
@@ -1176,7 +1176,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 390,
-        "y": 60,
+        "y": 20,
         "wires": []
     },
     {
@@ -1367,7 +1367,7 @@
         "seg2": "9.1",
         "className": "",
         "x": 380,
-        "y": 120,
+        "y": 80,
         "wires": []
     },
     {
@@ -1386,7 +1386,7 @@
         "topic": "ALARMA",
         "name": "",
         "x": 530,
-        "y": 260,
+        "y": 320,
         "wires": [
             []
         ]
@@ -1403,7 +1403,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 260,
+        "y": 320,
         "wires": [
             [
                 "1415728152e67db6"
@@ -1555,6 +1555,68 @@
                 "c5b5a7d0e7b9e29c"
             ]
         ]
+    },
+    {
+        "id": "acbbfb689f4be1f0",
+        "type": "mqtt in",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "topic": "esp32/voltage",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "2d3eb4344b9e18b7",
+                "4113121b59ec227d"
+            ]
+        ]
+    },
+    {
+        "id": "2d3eb4344b9e18b7",
+        "type": "debug",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 390,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4113121b59ec227d",
+        "type": "ui_gauge",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "group": "592e27d40a230c67",
+        "order": 1,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Voltage",
+        "label": "A",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "7",
+        "seg2": "9.1",
+        "className": "",
+        "x": 380,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "65386ab26a6c134d",
