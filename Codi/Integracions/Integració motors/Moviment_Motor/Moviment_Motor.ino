@@ -7,14 +7,14 @@
 /*******************************************************************************
  * IO DEFINITION                                                                *
  *******************************************************************************/
-#define RIGHT_PWM 2
-#define LEFT_PWM  4
+#define RIGHT_PWM 32
+#define LEFT_PWM  33
 #define PWM1_Ch    0
 #define PWM1_Res   8
 #define PWM1_Freq  5000
 #define PWM2_Ch    1
 #define CONTROL_RIGHT 5
-#define CONTROL_LEFT  18
+#define CONTROL_LEFT  25
 
 
 
