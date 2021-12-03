@@ -1215,8 +1215,7 @@
         "y": 500,
         "wires": [
             [
-                "c5b5a7d0e7b9e29c",
-                "40dcde2e07b78620"
+                "3280794c.eb6396"
             ]
         ]
     },
@@ -1233,8 +1232,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 390,
-        "y": 480,
+        "x": 690,
+        "y": 460,
         "wires": []
     },
     {
@@ -1296,7 +1295,7 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 380,
+        "x": 680,
         "y": 520,
         "wires": []
     },
@@ -1512,6 +1511,48 @@
         "wires": [
             [
                 "734487e027bd9a84"
+            ]
+        ]
+    },
+    {
+        "id": "3280794c.eb6396",
+        "type": "change",
+        "z": "d821cc0e9fee2262",
+        "name": "Convert Degrees To Text",
+        "rules": [
+            {
+                "t": "set",
+                "p": "directions",
+                "pt": "flow",
+                "to": "$exists($flowContext(\"directions\")) ?  $flowContext(\"directions\") : [\"N\", \"NNE\", \"NE\", \"ENE\", \"E\", \"ESE\", \"SE\", \"SSE\", \"S\", \"SSW\", \"SW\", \"WSW\", \"W\", \"WNW\", \"NW\", \"NNW\"] ",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "index",
+                "pt": "msg",
+                "to": "$string($floor((payload / 22.5) + 0.5) % 16)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$flowContext(\"directions[\"&index&\"]\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "40dcde2e07b78620",
+                "c5b5a7d0e7b9e29c"
             ]
         ]
     },
