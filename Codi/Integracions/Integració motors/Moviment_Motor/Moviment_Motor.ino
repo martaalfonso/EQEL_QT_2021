@@ -1,8 +1,8 @@
 /*******************************************************************************
  * LIBRARIES                                                                *
  *******************************************************************************/
-#include <WiFi.h>
-#include <PubSubClient.h>
+#include "WiFi.h"
+#include "PubSubClient.h"
 
 /*******************************************************************************
  * IO DEFINITION                                                                *
@@ -31,7 +31,7 @@ unsigned char left_motor;
 unsigned char switch_on;
 const char* ssid = "iPhone de: Marta";
 const char* password = "test1234";
-const char* mqtt_server = "172.20.10.14";
+const char* mqtt_server = "172.20.10.8";
 long lastMsg = 0;
 char msg[50];
 int value = 0;
@@ -90,11 +90,11 @@ void callback(char* topic, byte* message, unsigned int length) {
   Serial.print("Message arrived on topic: ");
   Serial.print(topic);
   Serial.print(". Message: ");
-  String messageTemp;
+  String stream;
   
   for (int i = 0; i < length; i++) {
     Serial.print((char)message[i]);
-    messageTemp += (char)message[i];
+    stream += (char)message[i];
   }
   Serial.println();
 
@@ -104,7 +104,7 @@ void callback(char* topic, byte* message, unsigned int length) {
   // Changes the output state according to the message
   if (String(topic) == "esp32/POWER") {
     Serial.print("Changing output to ");
-    if(messageTemp == "on"){
+    if(stream == "on"){
       Serial.println("on");
       switch_on = 1;
       //digitalWrite(ledPin, HIGH);
@@ -112,7 +112,7 @@ void callback(char* topic, byte* message, unsigned int length) {
       ledcWrite(PWM1_Ch, 100);
       
     }
-    else if(messageTemp == "off"){
+    else if(stream == "off"){
       Serial.println("off");
       switch_on = 0;
       digitalWrite(CONTROL_RIGHT, HIGH);
@@ -122,7 +122,7 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   if(String(topic) == "esp32/motor1")
   {
-    motor1 = messageTemp;
+    motor1 = stream;
     lectura_right_motor  = motor1.toInt();
     digitalWrite(CONTROL_RIGHT, HIGH);
     right_motor = map(lectura_right_motor, 0, 100, 0, 50);
@@ -131,11 +131,11 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   if(String(topic) == "esp32/motor2")
   {
-    motor2 = messageTemp;
+    motor2 = stream;
     lectura_left_motor  = motor2.toInt();
     digitalWrite(CONTROL_LEFT, HIGH);
-    right_motor = map(lectura_left_motor, 0, 100, 0, 50);
-    ledcWrite(PWM1_Ch, left_motor);
+    left_motor = map(lectura_left_motor, 0, 100, 0, 50);
+    ledcWrite(PWM2_Ch, left_motor);
   }
   
 }
@@ -148,6 +148,8 @@ void reconnect() {
       Serial.println("connected");
       // Subscribe
       client.subscribe("esp32/POWER");
+      client.subscribe("esp32/motor1");
+      client.subscribe("esp32/motor2");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
