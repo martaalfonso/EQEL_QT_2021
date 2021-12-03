@@ -37,9 +37,9 @@ volatile char redbuffer[120];
 volatile char blubuffer[120];
 String inputgpsSerial = "";
 boolean IsReadygpsSerial = false;
-const char* ssid = "Jan's Phone";    // Replace SSID
-const char* password = "tharsis1983";        // Replace Password combination
-const char* mqtt_server = "192.168.72.189"; // Add your MQTT Broker IP address
+const char* ssid = "XIAOMI TONI";    // Replace SSID
+const char* password = "holahola1234";        // Replace Password combination
+const char* mqtt_server = "192.168.233.189"; // Add your MQTT Broker IP address
 long lastMsg = 0;
 char msg[50];
 int value = 0;
