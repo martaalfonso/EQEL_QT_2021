@@ -514,7 +514,7 @@
         "id": "9319a9ba9c685643",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
-        "order": 1,
+        "order": 2,
         "group": "61285987.c20328",
         "width": "4",
         "height": 1,
@@ -545,7 +545,7 @@
         "id": "eb4e23e9dbfb569c",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
-        "order": 2,
+        "order": 3,
         "group": "61285987.c20328",
         "width": "4",
         "height": 1,
@@ -576,7 +576,7 @@
         "id": "9b5df2e59c8fa9c0",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
-        "order": 3,
+        "order": 4,
         "group": "61285987.c20328",
         "width": "4",
         "height": 1,
@@ -607,7 +607,7 @@
         "id": "fc2e4d69e94719b2",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
-        "order": 4,
+        "order": 5,
         "group": "61285987.c20328",
         "width": "4",
         "height": 1,
@@ -638,7 +638,7 @@
         "id": "a66159577078965c",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
-        "order": 5,
+        "order": 6,
         "group": "61285987.c20328",
         "width": "4",
         "height": 1,
@@ -669,7 +669,7 @@
         "id": "3cd336405a98aebe",
         "type": "ui_led",
         "z": "9f98de58bc05c7b9",
-        "order": 6,
+        "order": 7,
         "group": "61285987.c20328",
         "width": "4",
         "height": 1,
@@ -694,6 +694,72 @@
         "name": "",
         "x": 390,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "140af227010c0d15",
+        "type": "mqtt in",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "topic": "esp32/alive",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "10e78a89.5b4fd5",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 590,
+        "y": 460,
+        "wires": [
+            [
+                "56812c8f085a6329",
+                "91c9ce9ad45fcabe"
+            ]
+        ]
+    },
+    {
+        "id": "56812c8f085a6329",
+        "type": "debug",
+        "z": "9f98de58bc05c7b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 890,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "91c9ce9ad45fcabe",
+        "type": "ui_led",
+        "z": "9f98de58bc05c7b9",
+        "order": 1,
+        "group": "61285987.c20328",
+        "width": "4",
+        "height": 1,
+        "label": "ALIVE",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#fafafa",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "alive",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 870,
+        "y": 480,
         "wires": []
     },
     {
@@ -1278,7 +1344,7 @@
         "z": "d821cc0e9fee2262",
         "name": "",
         "group": "61285987.c20328",
-        "order": 7,
+        "order": 8,
         "width": 4,
         "height": 4,
         "gtype": "compass",
@@ -1374,6 +1440,7 @@
         "id": "1415728152e67db6",
         "type": "ui_toast",
         "z": "d821cc0e9fee2262",
+        "d": true,
         "position": "dialog",
         "displayTime": "10",
         "highlight": "",
@@ -1386,7 +1453,7 @@
         "topic": "ALARMA",
         "name": "",
         "x": 530,
-        "y": 320,
+        "y": 300,
         "wires": [
             []
         ]
@@ -1561,14 +1628,14 @@
         "type": "mqtt in",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "topic": "esp32/voltage",
+        "topic": "esp32/soc",
         "qos": "2",
         "datatype": "auto",
         "broker": "10e78a89.5b4fd5",
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 170,
+        "x": 160,
         "y": 160,
         "wires": [
             [
@@ -1601,20 +1668,20 @@
         "width": "5",
         "height": "4",
         "gtype": "gage",
-        "title": "Voltage",
-        "label": "A",
+        "title": "Nivell de bateria",
+        "label": "%",
         "format": "{{value}}",
         "min": 0,
-        "max": 10,
+        "max": "100",
         "colors": [
-            "#00b500",
+            "#ff1e05",
             "#e6e600",
-            "#ca3838"
+            "#19a207"
         ],
-        "seg1": "7",
-        "seg2": "9.1",
+        "seg1": "35",
+        "seg2": "91",
         "className": "",
-        "x": 380,
+        "x": 400,
         "y": 200,
         "wires": []
     },
@@ -1803,7 +1870,7 @@
         "type": "mqtt out",
         "z": "ce0c5f0bae4cb7d0",
         "name": "",
-        "topic": "esp32/power",
+        "topic": "esp32/POWER",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1812,7 +1879,7 @@
         "correl": "",
         "expiry": "",
         "broker": "10e78a89.5b4fd5",
-        "x": 490,
+        "x": 500,
         "y": 580,
         "wires": []
     },
@@ -1829,8 +1896,8 @@
         "height": 1,
         "passthru": true,
         "decouple": "false",
-        "topic": "",
-        "topicType": "str",
+        "topic": "topi",
+        "topicType": "msg",
         "style": "",
         "onvalue": "on",
         "onvalueType": "str",
@@ -1846,8 +1913,25 @@
         "y": 580,
         "wires": [
             [
-                "5288d8b228548357"
+                "5288d8b228548357",
+                "7983a71c4a307a48"
             ]
         ]
+    },
+    {
+        "id": "7983a71c4a307a48",
+        "type": "debug",
+        "z": "ce0c5f0bae4cb7d0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 660,
+        "wires": []
     }
 ]
