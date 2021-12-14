@@ -1746,8 +1746,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 980,
+        "x": 520,
+        "y": 960,
         "wires": [
             [
                 "7886b6f8d686d3b7",
@@ -1768,8 +1768,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 1000,
+        "x": 1080,
+        "y": 940,
         "wires": []
     },
     {
@@ -1785,8 +1785,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 1060,
+        "x": 1040,
+        "y": 1020,
         "wires": []
     },
     {
@@ -1794,10 +1794,10 @@
         "type": "buffer-array",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "bufferLen": "2",
+        "bufferLen": "4",
         "startWhenFilled": false,
-        "x": 350,
-        "y": 1060,
+        "x": 770,
+        "y": 1000,
         "wires": [
             [
                 "44143689e0d34259"
