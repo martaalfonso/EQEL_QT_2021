@@ -1711,11 +1711,11 @@
         "tosidebar": true,
         "console": true,
         "tostatus": false,
-        "complete": "payload.lat",
+        "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
+        "x": 740,
         "y": 900,
         "wires": []
     },
@@ -1730,9 +1730,46 @@
         "y": 900,
         "wires": [
             [
-                "3bce05aab3dea85f"
+                "3bce05aab3dea85f",
+                "c51e40ef5bac7ca1"
             ]
         ]
+    },
+    {
+        "id": "c51e40ef5bac7ca1",
+        "type": "function",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "func": "coord_lat = msg.payload.lat;\nreturn coord_lat;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 980,
+        "wires": [
+            [
+                "7886b6f8d686d3b7"
+            ]
+        ]
+    },
+    {
+        "id": "7886b6f8d686d3b7",
+        "type": "debug",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1000,
+        "wires": []
     },
     {
         "id": "65386ab26a6c134d",
