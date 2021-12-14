@@ -1711,11 +1711,11 @@
         "tosidebar": true,
         "console": true,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "payload.lat",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 730,
         "y": 960,
         "wires": []
     },
