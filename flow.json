@@ -1730,6 +1730,25 @@
         "y": 900,
         "wires": [
             [
+                "92ceeec3068a333d"
+            ]
+        ]
+    },
+    {
+        "id": "92ceeec3068a333d",
+        "type": "function",
+        "z": "d821cc0e9fee2262",
+        "name": "convert",
+        "func": "return{\n    payload: {\n        lon: msg.payload.longitude,\n        lat: msg.payload.latitude,\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 900,
+        "wires": [
+            [
                 "3bce05aab3dea85f"
             ]
         ]
