@@ -19,7 +19,7 @@
 #define DHTTYPE DHT11           // S'indica que s'utilitza concretament el DHT11
 #define WATER_LEVEL 35          // Tipus de sensor d'inundació
 #define CURRENT_PIN 34
-#define V_BAT_PIN 13
+#define V_BAT_PIN 36
 #define n_muestras 200          // Filtre sensor corrent
 
 #define RIGHT_PWM 32
