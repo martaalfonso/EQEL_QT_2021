@@ -1740,7 +1740,7 @@
         "type": "function",
         "z": "d821cc0e9fee2262",
         "name": "",
-        "func": "coord_lat = msg.payload.lat;\nreturn coord_lat;",
+        "func": "lon = msg.payload.lon;\nlat = msg.payload.lat;\n\nreturn{\n        lon,\n        lat\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
