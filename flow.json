@@ -1772,25 +1772,6 @@
         "wires": []
     },
     {
-        "id": "2bf0509286b08a4e",
-        "type": "ring-buffer",
-        "z": "d821cc0e9fee2262",
-        "name": "Buffer",
-        "capacity": "200",
-        "order": "old-to-new",
-        "sendOnlyIfFull": true,
-        "pushAfterClear": false,
-        "extra": false,
-        "perTopic": false,
-        "x": 390,
-        "y": 1040,
-        "wires": [
-            [
-                "44143689e0d34259"
-            ]
-        ]
-    },
-    {
         "id": "44143689e0d34259",
         "type": "debug",
         "z": "d821cc0e9fee2262",
@@ -1806,6 +1787,45 @@
         "x": 560,
         "y": 1060,
         "wires": []
+    },
+    {
+        "id": "bb0177fa8ab10d98",
+        "type": "buffer-array",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "bufferLen": "2",
+        "startWhenFilled": false,
+        "x": 350,
+        "y": 1060,
+        "wires": [
+            [
+                "44143689e0d34259"
+            ]
+        ]
+    },
+    {
+        "id": "6680f5ee1792302a",
+        "type": "inject",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "a",
+        "x": 140,
+        "y": 1080,
+        "wires": [
+            [
+                "bb0177fa8ab10d98"
+            ]
+        ]
     },
     {
         "id": "65386ab26a6c134d",
