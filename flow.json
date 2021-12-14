@@ -97,7 +97,7 @@
         "type": "ui_group",
         "name": "MPU6050",
         "tab": "e7c46d5e.a1283",
-        "order": 6,
+        "order": 4,
         "disp": true,
         "width": "10",
         "collapse": false,
@@ -119,7 +119,7 @@
         "type": "ui_group",
         "name": "GPS",
         "tab": "e7c46d5e.a1283",
-        "order": 7,
+        "order": 5,
         "disp": true,
         "width": "11",
         "collapse": false,
@@ -129,8 +129,8 @@
         "id": "7a832387.7a6c6c",
         "type": "ui_group",
         "name": "Map",
-        "tab": "f76c8797.584da8",
-        "order": 1,
+        "tab": "e7c46d5e.a1283",
+        "order": 6,
         "disp": true,
         "width": "20",
         "collapse": false
@@ -140,7 +140,7 @@
         "type": "ui_group",
         "name": "History",
         "tab": "f76c8797.584da8",
-        "order": 3,
+        "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -150,7 +150,7 @@
         "type": "ui_group",
         "name": "Speed, Altitude, Accuracy chart",
         "tab": "f76c8797.584da8",
-        "order": 4,
+        "order": 2,
         "disp": true,
         "width": "20",
         "collapse": false
@@ -160,7 +160,7 @@
         "type": "ui_group",
         "name": "Tracks",
         "tab": "f76c8797.584da8",
-        "order": 5,
+        "order": 3,
         "disp": true,
         "width": "20",
         "collapse": false
@@ -1526,7 +1526,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
+        "x": 520,
         "y": 720,
         "wires": [
             [
@@ -1577,7 +1577,8 @@
         "y": 720,
         "wires": [
             [
-                "734487e027bd9a84"
+                "734487e027bd9a84",
+                "436c54b9b9f9016b"
             ]
         ]
     },
@@ -1684,6 +1685,52 @@
         "x": 400,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "436c54b9b9f9016b",
+        "type": "worldmap-tracks",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "depth": 20,
+        "layer": "combined",
+        "smooth": false,
+        "x": 510,
+        "y": 800,
+        "wires": [
+            [
+                "30e37e4a6bb7eb51"
+            ]
+        ]
+    },
+    {
+        "id": "3bce05aab3dea85f",
+        "type": "debug",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "ad3f92844060a780",
+        "type": "worldmap in",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "path": "/worldmap",
+        "events": "connect,disconnect,point,bounds,files,draw,other",
+        "x": 420,
+        "y": 900,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "65386ab26a6c134d",
