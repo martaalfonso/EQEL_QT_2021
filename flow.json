@@ -1712,10 +1712,10 @@
         "console": true,
         "tostatus": false,
         "complete": "payload.lat",
-        "targetType": "msg",
+        "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
+        "x": 710,
         "y": 960,
         "wires": []
     },
