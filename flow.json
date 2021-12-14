@@ -1776,7 +1776,7 @@
         "type": "ring-buffer",
         "z": "d821cc0e9fee2262",
         "name": "Buffer",
-        "capacity": "20",
+        "capacity": "200",
         "order": "old-to-new",
         "sendOnlyIfFull": true,
         "pushAfterClear": false,
