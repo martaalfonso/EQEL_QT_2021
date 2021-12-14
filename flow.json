@@ -1715,7 +1715,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 740,
+        "x": 460,
         "y": 900,
         "wires": []
     },
@@ -1726,7 +1726,7 @@
         "name": "",
         "path": "/worldmap",
         "events": "point",
-        "x": 340,
+        "x": 60,
         "y": 880,
         "wires": [
             [
@@ -1746,7 +1746,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 240,
         "y": 960,
         "wires": [
             [
@@ -1768,7 +1768,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
+        "x": 800,
         "y": 940,
         "wires": []
     },
@@ -1785,7 +1785,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
+        "x": 760,
         "y": 1020,
         "wires": []
     },
@@ -1796,7 +1796,7 @@
         "name": "",
         "bufferLen": "4",
         "startWhenFilled": false,
-        "x": 770,
+        "x": 490,
         "y": 1000,
         "wires": [
             [
