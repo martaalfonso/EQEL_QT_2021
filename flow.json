@@ -1808,31 +1808,6 @@
         "wires": []
     },
     {
-        "id": "ca35870d204b9294",
-        "type": "inject",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "v": "1",
-                "vt": "num"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 230,
-        "y": 1040,
-        "wires": [
-            [
-                "2bf0509286b08a4e"
-            ]
-        ]
-    },
-    {
         "id": "65386ab26a6c134d",
         "type": "mqtt out",
         "z": "ce0c5f0bae4cb7d0",
