@@ -1726,12 +1726,13 @@
         "name": "",
         "path": "/worldmap",
         "events": "point",
-        "x": 420,
-        "y": 900,
+        "x": 340,
+        "y": 880,
         "wires": [
             [
                 "3bce05aab3dea85f",
-                "c51e40ef5bac7ca1"
+                "c51e40ef5bac7ca1",
+                "2bf0509286b08a4e"
             ]
         ]
     },
@@ -1750,8 +1751,7 @@
         "y": 980,
         "wires": [
             [
-                "7886b6f8d686d3b7",
-                "9ec44ff3d9cb5319"
+                "7886b6f8d686d3b7"
             ]
         ]
     },
@@ -1773,20 +1773,39 @@
         "wires": []
     },
     {
-        "id": "9ec44ff3d9cb5319",
-        "type": "ui_text",
+        "id": "2bf0509286b08a4e",
+        "type": "ring-buffer",
         "z": "d821cc0e9fee2262",
-        "group": "61285987.c20328",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Lat",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 740,
+        "name": "Buffer",
+        "capacity": "6",
+        "order": "old-to-new",
+        "sendOnlyIfFull": true,
+        "pushAfterClear": false,
+        "extra": false,
+        "perTopic": false,
+        "x": 390,
         "y": 1040,
+        "wires": [
+            [
+                "44143689e0d34259"
+            ]
+        ]
+    },
+    {
+        "id": "44143689e0d34259",
+        "type": "debug",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 1060,
         "wires": []
     },
     {
