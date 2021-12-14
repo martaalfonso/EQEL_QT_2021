@@ -1750,7 +1750,8 @@
         "y": 980,
         "wires": [
             [
-                "7886b6f8d686d3b7"
+                "7886b6f8d686d3b7",
+                "9ec44ff3d9cb5319"
             ]
         ]
     },
@@ -1769,6 +1770,22 @@
         "statusType": "auto",
         "x": 770,
         "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "9ec44ff3d9cb5319",
+        "type": "ui_text",
+        "z": "d821cc0e9fee2262",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 740,
+        "y": 1040,
         "wires": []
     },
     {
