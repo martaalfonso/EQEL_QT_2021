@@ -55,8 +55,8 @@ const char* mqtt_server = "172.20.10.8"; // Add your MQTT Broker IP address
 long lastMsg = 0;
 char msg[50];
 int value = 0;
-float Sensibilitat = 113;   //Sensibilitat en mV/A per sensor de 20 A
-float mVref = 2069;         // V quan I = 0 A
+float Sensibilitat = 6.712;   //Sensibilitat en mV/A per sensor de 20 A
+float mVref = 1866;         // V quan I = 0 A
 int ADC_reading;
 float mV, corrent, mV_total;
 float estat_ta, inundacio, estat_ind, estat_current, estat_mpu, estat_gps, estat_hmc = 0.0;    // Sesnors conectats o no conectats
