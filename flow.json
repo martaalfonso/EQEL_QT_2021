@@ -1555,7 +1555,7 @@
         "showgrid": "false",
         "allowFileDrop": "false",
         "path": "/worldmap",
-        "overlist": "DR,CO,RA,DN,HM",
+        "overlist": "DR,CO,DN,TL,HM",
         "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS,SW",
         "mapname": "",
         "mapurl": "",
@@ -1725,7 +1725,7 @@
         "z": "d821cc0e9fee2262",
         "name": "",
         "path": "/worldmap",
-        "events": "connect,point,draw",
+        "events": "point",
         "x": 420,
         "y": 900,
         "wires": [
