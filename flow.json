@@ -1776,7 +1776,7 @@
         "type": "ring-buffer",
         "z": "d821cc0e9fee2262",
         "name": "Buffer",
-        "capacity": "2",
+        "capacity": "20",
         "order": "old-to-new",
         "sendOnlyIfFull": true,
         "pushAfterClear": false,
@@ -1824,8 +1824,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 80,
-        "y": 1060,
+        "x": 230,
+        "y": 1040,
         "wires": [
             [
                 "2bf0509286b08a4e"
