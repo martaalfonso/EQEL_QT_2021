@@ -1775,7 +1775,7 @@
         "id": "44143689e0d34259",
         "type": "debug",
         "z": "d821cc0e9fee2262",
-        "name": "",
+        "name": "buffer",
         "active": true,
         "tosidebar": true,
         "console": true,
@@ -1784,7 +1784,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
+        "x": 540,
         "y": 1060,
         "wires": []
     },
