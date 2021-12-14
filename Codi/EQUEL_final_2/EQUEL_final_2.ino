@@ -28,7 +28,7 @@
 #define PWM1_Res   8
 #define PWM1_Freq  5000
 #define PWM2_Ch    1
-#define CONTROL_RIGHT 5
+#define CONTROL_RIGHT 5  
 #define CONTROL_LEFT  25
 #define POWER 27
 
@@ -110,7 +110,7 @@ void setup(void) {
 
   // Inicialització del serial
   Serial.begin(115200);
-
+  analogReadResolution(12);
   // --------------- Wi-Fi ------------------
   setup_wifi();
   client.setServer(mqtt_server, 1883);
@@ -467,11 +467,11 @@ void dades_tensio(void) {
 
   Serial.print("Voltatge bateria: ");
   //Serial.println(battery_voltage);
-  battery_voltage = battery_voltage * 3.1588493 / 255; //Valor máximo de tensión por el diseño actual
-  battery_voltage = (battery_voltage / 0.391357273 + 1.2) / 0.662251656; //Antitransformada de la tensión de entrada al esp32, correspondiente a la tensión de bateria
+  battery_voltage = battery_voltage * 3.1588493 / 4095; //Valor máximo de tensión por el diseño actual
+  
   Serial.print(battery_voltage);
   Serial.println(" V");
-  battery_voltage = map(battery_voltage,11.5,14,0,100);
+  battery_voltage = 100 * (2.510906797 - battery_voltage) / (2.510906797 - 3.1588493);
   Serial.println(battery_voltage);
   char battery_voltageString[8];
   dtostrf(battery_voltage, 1, 2, battery_voltageString);            // Converteix el valor a un char array
