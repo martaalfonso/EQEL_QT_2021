@@ -1750,7 +1750,8 @@
         "y": 980,
         "wires": [
             [
-                "7886b6f8d686d3b7"
+                "7886b6f8d686d3b7",
+                "bb0177fa8ab10d98"
             ]
         ]
     },
@@ -1800,30 +1801,6 @@
         "wires": [
             [
                 "44143689e0d34259"
-            ]
-        ]
-    },
-    {
-        "id": "6680f5ee1792302a",
-        "type": "inject",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "00",
-        "x": 140,
-        "y": 1080,
-        "wires": [
-            [
-                "bb0177fa8ab10d98"
             ]
         ]
     },
