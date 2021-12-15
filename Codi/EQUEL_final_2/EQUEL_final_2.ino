@@ -195,8 +195,7 @@ void wifi(void) {
 void dades_imu(void) {
   Serial.print("IMU: ");
 
-  if (!mpu.begin())
-  {
+  if (!mpu.begin()){
     Serial.println("No conectada");
     estat_mpu = 0.0;
   }
@@ -384,8 +383,8 @@ void dades_corrent(void) {
 
   for (int i = 0; i < n_muestras; i++) {
     ADC_reading = analogRead(CURRENT_PIN);
-    mV_total += ((ADC_reading * 3300) / 4095); // Lectura del sensor
-    mV = ((ADC_reading * 3300) / 4095); // Lectura actual
+    mV_total += (((ADC_reading * 3300) / 4095) * (5 / 3.3)); // Lectura del sensor
+    mV = (((ADC_reading * 3300) / 4095) * (5 / 3.3)); // Lectura actual
     corrent += ((mV - mVref) / Sensibilitat); // Equació per obtenir la corrent
   }
 
@@ -466,13 +465,15 @@ void dades_tensio(void) {
   float battery_voltage = analogRead(V_BAT_PIN);
 
   Serial.print("Voltatge bateria: ");
-  //Serial.println(battery_voltage);
   battery_voltage = battery_voltage * 3.1588493 / 4095; //Valor máximo de tensión por el diseño actual
-  
   Serial.print(battery_voltage);
-  Serial.println(" V");
+  Serial.print(" V | ");
+
+  Serial.print("SoC bateria: ");
   battery_voltage = 100 * (2.510906797 - battery_voltage) / (2.510906797 - 3.1588493);
-  Serial.println(battery_voltage);
+  Serial.print(battery_voltage);
+  Serial.println(" %");
+
   char battery_voltageString[8];
   dtostrf(battery_voltage, 1, 2, battery_voltageString);            // Converteix el valor a un char array
   client.publish("esp32/soc", battery_voltageString);
