@@ -28,9 +28,12 @@
 #define PWM1_Res   8
 #define PWM1_Freq  5000
 #define PWM2_Ch    1
-#define CONTROL_RIGHT 5  
+#define CONTROL_RIGHT 5
 #define CONTROL_LEFT  25
 #define POWER 27
+
+#define angle_margin 5          // 5 graus d'error en la orientació
+#define distance_margin 2.5     // 2,5 metres d'error en la distancia
 
 // Declarem objectes
 Adafruit_MPU6050 mpu;
@@ -55,8 +58,8 @@ const char* mqtt_server = "172.20.10.8"; // Add your MQTT Broker IP address
 long lastMsg = 0;
 char msg[50];
 int value = 0;
-float Sensibilitat = 6.712;   //Sensibilitat en mV/A per sensor de 20 A
-float mVref = 1866;         // V quan I = 0 A
+float Sensibilitat = 113;   //Sensibilitat en mV/A per sensor de 20 A
+float mVref = 2244;         // V quan I = 0 A
 int ADC_reading;
 float mV, corrent, mV_total;
 float estat_ta, inundacio, estat_ind, estat_current, estat_mpu, estat_gps, estat_hmc = 0.0;    // Sesnors conectats o no conectats
@@ -64,6 +67,17 @@ unsigned char cnt_gps = 0;
 
 unsigned char inici_hmc = 1;  // Flag pel setup del hmc
 unsigned char inici_mpu = 1;  // Flag pel setup del mpu
+
+unsigned char activacio_navegacio_autonoma = 0;
+float waypoints[8] = {41.408631146270274, 2.2262997046293087, 41.40864019619339, 2.226228607155201,
+                      41.40860500204085, 2.226216533999206, 41.40859695766045, 2.2262768997791405
+                     };
+unsigned char angle_correct = 0;    // Flag que indica si estem disn els marges d'error de la orientacio
+unsigned int dades_cnt = 0; // Compatdor per no enviar dades cada us.
+float lat1_deg, long1_deg; // Coordenades inicials
+float lat2_deg, long2_deg; // Coordenades finals
+float distance_m, angle_deg; // Distància i angle entre punt A i punt B
+float angle_dif; // Diferència entre el nord i l'angle entre el punt A i B
 
 String motor1, motor2;
 int lectura_right_motor, lectura_left_motor;
@@ -84,6 +98,13 @@ void dades_nivell_aigua(void);
 void dades_corrent(void);
 void dades_gps(void);
 void dades_tensio(void);
+
+void get_lat_long(unsigned char waypoint);
+void get_gps_info();
+void get_dist_bearing();
+void show_compass();
+void correct_angle_dif();
+void correct_distance_m();
 
 void listen();
 void read(char nextChar);
@@ -137,7 +158,7 @@ void setup(void) {
   gpsSerial.begin(9600);      // Connect to the GPS module
   SelectSentences();
   pinMode(POWER, OUTPUT);
-  
+
 
   // ----------------- Motors ---------------
   // Initialize the PWM and DIR pins as digital outputs.
@@ -159,20 +180,71 @@ void setup(void) {
 
 void loop() {
 
+
   wifi();
   client.publish("esp32/alive", "alive");
   delay(500);
   client.publish("esp32/alive", "0");
-  dades_imu();          // Dades del imu i enviar al node red
-  dades_bruixola();     // Dades de la bruixola i enviar al node red
-  dades_temperatura();  // Dades de la temperatura i enviar al node red
-  dades_nivell_aigua(); // Dades del nivell d'aigua i enviar al node red
-  dades_corrent();      // Dades del corrent i enviar al node red
-  dades_gps();          // Dades del gps i enviar al node red
-  dades_tensio();       // Dades de tensio bateria i enviar al node red
 
-  Serial.println("");
-  delay(1000);
+  if (activacio_navegacio_autonoma == 0) {
+    dades_imu();          // Dades del imu i enviar al node red
+    dades_bruixola();     // Dades de la bruixola i enviar al node red
+    dades_temperatura();  // Dades de la temperatura i enviar al node red
+    dades_nivell_aigua(); // Dades del nivell d'aigua i enviar al node red
+    dades_corrent();      // Dades del corrent i enviar al node red
+    dades_gps();          // Dades del gps i enviar al node red
+    dades_tensio();       // Dades de tensio bateria i enviar al node red
+
+    Serial.println("");
+    delay(1000);
+  }
+
+  else {
+
+    for (unsigned char i = 0; i < 4; i++) {
+      get_lat_long(2 * i); // Obtenim latitud i longitud d'el punt on volem anar
+
+      while (distance_m > distance_margin) {  // Mentre no haguem arribat al lloc obtenim telemetria i ens apropem
+
+        if ((estat_gps == 0.0) or (estat_hmc == 0.0)) { // Si perdem connexio del gpso o bruixola aturem motors fins reprendre connexio
+
+          lectura_right_motor  = 0;
+          lectura_left_motor = 0;
+          digitalWrite(CONTROL_RIGHT, HIGH);
+          digitalWrite(CONTROL_LEFT, HIGH);
+          right_motor = map(lectura_right_motor, 0, 100, 0, 50);
+          left_motor = map(lectura_left_motor, 0, 100, 0, 50);
+          ledcWrite(PWM1_Ch, right_motor);
+          ledcWrite(PWM2_Ch, left_motor);
+        }
+
+        wifi();
+
+        if (dades_cnt == 1000) {      // Les dades dels sensors s'envien cada x temps, nose si posar 1000 o 100 o 1000000...
+          dades_cnt = 0;              // Reset del comptador
+
+          dades_imu();          // Dades del imu i enviar al node red
+          dades_temperatura();  // Dades de la temperatura i enviar al node red
+          dades_nivell_aigua(); // Dades del nivell d'aigua i enviar al node red
+          dades_corrent();      // Dades del corrent i enviar al node red
+          dades_tensio();       // Dades de tensio bateria i enviar al node red
+        }
+
+        // Telemetria
+        get_gps_info();         // Obtenim latitud i longitud d'on estem
+        get_dist_bearing();     // Obtenim distancia i orientació entre dues coordenades
+        show_compass();         // Dades brúxiola i calcul de desviació d'orientació
+
+        // Moviment autonom
+        correct_angle_dif();
+        if (angle_correct) {    // Només avancem si estem ben orientats, dins els marges d'error
+          angle_correct = 0;
+          correct_distance_m();
+        }
+        dades_cnt++;
+      }
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////// Funcions per obtenir dades de cada sensor i enviarles al pc /////////////////////////////////////////////////
@@ -195,7 +267,7 @@ void wifi(void) {
 void dades_imu(void) {
   Serial.print("IMU: ");
 
-  if (!mpu.begin()){
+  if (!mpu.begin()) {
     Serial.println("No conectada");
     estat_mpu = 0.0;
   }
@@ -478,7 +550,209 @@ void dades_tensio(void) {
   dtostrf(battery_voltage, 1, 2, battery_voltageString);            // Converteix el valor a un char array
   client.publish("esp32/soc", battery_voltageString);
 }
+/////////////////////////////////////////////////////////////////// G E T   L A T   L O N G ////////////////////////////////////////////////////////////////////////////////////////
+void get_lat_long(unsigned char waypoint) {
 
+  lat2_deg = waypoints[waypoint];
+  long2_deg = waypoints[waypoint + 1];
+
+  //---------------------FI DEL JSON---------------------------
+
+  Serial.print("Us esteu dirigint cap al punt amb latitud i longitud de: ");
+  Serial.print(lat2_deg, 6);
+  Serial.print(", ");
+  Serial.println(long2_deg, 6);
+
+}
+
+/////////////////////////////////////////////////////////////////////////// G E T   G P S   I N F O ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void get_gps_info() {
+
+  Serial.print("GPS: ");
+  if (gpsstatus != 'A') {
+    estat_gps = 0.0;
+    Serial.println("Sensor desconectat");
+  }
+  else {        // Dins els límits bons, enviem que el sensor està funcionant bé
+    estat_gps = 1.0;
+
+    lat1_deg = latitude;
+    long1_deg = longitude;
+
+    Serial.print("Latitud: ");
+    Serial.print(latitude, 8);
+    Serial.print(",");
+    Serial.print("Longitud: ");
+    Serial.print(longitude, 8);
+    Serial.print(",");
+    Serial.println(gpsstatus);
+
+    if (dades_cnt == 1000) {  // Per no enviar les dades cada dos per tres
+      GPS_data["longitude"] = longitude;
+      GPS_data["latitude"] = latitude;
+
+      char output[128];
+      serializeJson(GPS_data, output);
+      //Serial.println(output);
+      client.publish("esp32/GPS_data", output);
+      // http://localhost:1880/worldmap/
+    }
+  }
+  char estatgpsString[8];
+  dtostrf(estat_gps, 1, 2, estatgpsString);
+  client.publish("esp32/estat_gps", estatgpsString);
+
+  listen();
+}
+
+///////////////////////////////////////////////////////////////// G E T   D I S T   B E A R I N G//////////////////////////////////////////////////////////////////////////////////////////
+void get_dist_bearing() {
+  const float radi = 6371000;
+
+  float lat1_rad = (lat1_deg) * (M_PI / 180.0);
+  float long1_rad = (long1_deg) * (M_PI / 180.0);
+  float lat2_rad = (lat2_deg) * (M_PI / 180.0);
+  float long2_rad = (long2_deg) * (M_PI / 180.0);
+  float delta_lat_rad = (lat2_deg - lat1_deg) * (M_PI / 180.0);
+  float delta_long_rad = (long2_deg - long1_deg) * (M_PI / 180.0);
+
+  float a = pow(sin(delta_lat_rad / 2.0), 2) + cos(lat1_rad) * cos(lat2_rad) * pow(sin(delta_long_rad / 2.0), 2);
+  float c = 2 * atan2(sqrt(a), sqrt(1 - a));
+  distance_m = radi * c;
+
+  float y = sin(delta_long_rad) * cos(lat2_rad);
+  float x = cos(lat1_rad) * sin(lat2_rad) - sin(lat1_rad) * cos(lat2_rad) * cos(delta_long_rad);
+  float angle_rad = atan2(y, x);
+  int angle_pre = (angle_rad * 180 / M_PI) + 360;
+  angle_deg = (float)(angle_pre % 360);
+
+
+  Serial.print("La distància és de ");
+  Serial.print(distance_m, 2);
+  Serial.print("m ");
+  Serial.print("amb un angle de ");
+  Serial.print(angle_deg, 4);
+  Serial.println("º respecte el Nord.");
+}
+
+//////////////////////////////////////////////////////////////////////////// S H O W   C O M P A S S //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ------------- HMC5883L - Bruixola ---------------------------------------------------------------------------------------------------------------------------------------------------------
+void show_compass() {
+  Serial.print("Brúixola: ");
+
+  if (!compass.begin())
+  {
+    Serial.println("No conectada");
+    estat_hmc = 0.0;
+
+  }
+  else {
+    estat_hmc = 1.0;
+
+    if (inici_hmc) {
+      inici_hmc = 0;
+      compass.setRange(HMC5883L_RANGE_1_3GA);             // Estableix el rang de mesura
+      compass.setMeasurementMode(HMC5883L_CONTINOUS);     // Estableix el mode de mesura
+      compass.setDataRate(HMC5883L_DATARATE_30HZ);        // Estableix la velocitat de dades
+      compass.setSamples(HMC5883L_SAMPLES_8);             // Estableix el nombre mitjà de mostres
+      compass.setOffset(24, -166);                        // Es calibra establint l'offset. Els valors es calculen amb el codi calibratge_HMC5883L.ino
+    }
+
+    /* S'obtenen els nous esdeveniments del sensor amb les lectures */
+    Vector norm = compass.readNormalize();
+
+    // Es calcula la direcció
+    float heading = atan2(norm.YAxis, norm.XAxis);
+
+    // Es calcula la declinació magnètica = (deg + (min / 60.0)) / (180 / M_PI)
+    float declinationAngle = (1.0 + (30.0 / 60.0)) / (180 / M_PI);  // La declinació magnètica a Barcelona és 1º 30'
+    heading += declinationAngle;
+
+    // Corregir la direcció: 360 < direcció < 0
+    if (heading < 0) {
+      heading += 2 * PI;
+    }
+    if (heading > 2 * PI) {
+      heading -= 2 * PI;
+    }
+
+    float headingDegrees = heading * 180 / M_PI;    // Converteix la direcció de radians a graus
+
+    angle_dif = headingDegrees - angle_deg; // Diferència respecte nord
+    if (angle_dif < 0) {
+      angle_dif += 360;
+    }
+
+
+    Serial.print("Direcció = ");
+    Serial.print(heading);
+    Serial.print(" i Graus = ");
+    Serial.print(headingDegrees);
+    Serial.print("°, amb una dif respecte punts de ");
+    Serial.print(angle_dif, 2);
+    Serial.println("°");
+
+    if (dades_cnt == 1000) {
+      char headingString[8];
+      dtostrf(headingDegrees, 1, 2, headingString);         // Converteix el valor a un char array
+      client.publish("esp32/headingDegrees", headingString);
+    }
+  }
+
+  char estatHmcString[8];
+  dtostrf(estat_hmc, 1, 2, estatHmcString);
+  client.publish("esp32/estat_hmc", estatHmcString);
+}
+
+
+//////////////////////////////////////////////////////////////////////////// CORRECT ANGLE DIFF //////////////////////////////////////////////////////////////////////////////////////////////////////////
+void correct_angle_dif() {
+  if (angle_dif > angle_margin and angle_dif < 180) { // Girar esquerra
+    lectura_right_motor  = 20;
+    lectura_left_motor = 0;
+  }
+  else if (angle_dif > 180 and angle_dif < (360 - angle_margin)) { // Girar dreta
+    lectura_right_motor  = 0;
+    lectura_left_motor = 20;
+  }
+  else {    // Aturar
+    angle_correct = 1;
+    lectura_right_motor  = 0;
+    lectura_left_motor = 0;
+  }
+
+  digitalWrite(CONTROL_RIGHT, HIGH);  // Direccio endavant
+  digitalWrite(CONTROL_LEFT, HIGH);   // Direccio endavant
+
+  right_motor = map(lectura_right_motor, 0, 100, 0, 50);
+  left_motor = map(lectura_left_motor, 0, 100, 0, 50);
+
+  ledcWrite(PWM1_Ch, right_motor);
+  ledcWrite(PWM2_Ch, left_motor);
+}
+
+//////////////////////////////////////////////////////////////////////////// CORRECT DISTANCE //////////////////////////////////////////////////////////////////////////////////////////////////////////
+void correct_distance_m() {
+  if (distance_m > distance_margin) {     // Avançar recte
+    lectura_right_motor  = 20;
+    lectura_left_motor = 20;
+  }
+  else {    // Aturar
+    lectura_right_motor  = 0;
+    lectura_left_motor = 0;
+  }
+
+  digitalWrite(CONTROL_RIGHT, HIGH);
+  digitalWrite(CONTROL_LEFT, HIGH);
+
+  right_motor = map(lectura_right_motor, 0, 100, 0, 50);
+  left_motor = map(lectura_left_motor, 0, 100, 0, 50);
+
+  ledcWrite(PWM1_Ch, right_motor);
+  ledcWrite(PWM2_Ch, left_motor);
+}
 ///////////////////////////////////////////////////////////////////////// Funcions d'inicialitzacio i ús d'alguns sensors i servei, són com les llibreries ////////////////////////////////////////////////////////////
 // -------------- Funcions GPS ------------------
 void listen() {
@@ -940,29 +1214,14 @@ void callback(char* topic, byte * message, unsigned int length) {
     ledcWrite(PWM2_Ch, left_motor);
   }
 
-  /*
-    String messageTemp;
-    for (int i = 0; i < length; i++) {
-    Serial.print((char)message[i]);
-    messageTemp += (char)message[i];
+  if (String(topic) == "esp32/demo") {
+    if (stream == "on") {
+      activacio_navegacio_autonoma = 1;
     }
-    Serial.println();
-
-    // Feel free to add more if statements to control more GPIOs with MQTT
-
-    // If a message is received on the topic esp32/output, you check if the message is either "on" or "off".
-    // Changes the output state according to the message
-    if (String(topic) == "esp32/output") {
-    Serial.print("Changing output to ");
-    if (messageTemp == "on") {
-      Serial.println("on");
+    else if (stream == "off") {
+      activacio_navegacio_autonoma = 0;
     }
-    else if (messageTemp == "off") {
-      Serial.println("off");
-    }
-    }
-  */
-
+  }
 }
 
 void reconnect() {
@@ -977,6 +1236,7 @@ void reconnect() {
       client.subscribe("esp32/POWER");
       client.subscribe("esp32/motor1");
       client.subscribe("esp32/motor2");
+      client.subscribe("esp32/demo");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
