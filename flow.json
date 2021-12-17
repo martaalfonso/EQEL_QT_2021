@@ -1321,7 +1321,8 @@
         "y": 500,
         "wires": [
             [
-                "3280794c.eb6396"
+                "40dcde2e07b78620",
+                "c5b5a7d0e7b9e29c"
             ]
         ]
     },
@@ -1583,48 +1584,6 @@
             [
                 "734487e027bd9a84",
                 "436c54b9b9f9016b"
-            ]
-        ]
-    },
-    {
-        "id": "3280794c.eb6396",
-        "type": "change",
-        "z": "d821cc0e9fee2262",
-        "name": "Convert Degrees To Text",
-        "rules": [
-            {
-                "t": "set",
-                "p": "directions",
-                "pt": "flow",
-                "to": "$exists($flowContext(\"directions\")) ?  $flowContext(\"directions\") : [\"N\", \"NNE\", \"NE\", \"ENE\", \"E\", \"ESE\", \"SE\", \"SSE\", \"S\", \"SSW\", \"SW\", \"WSW\", \"W\", \"WNW\", \"NW\", \"NNW\"] ",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "index",
-                "pt": "msg",
-                "to": "$string($floor((payload / 22.5) + 0.5) % 16)",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$flowContext(\"directions[\"&index&\"]\")",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 540,
-        "wires": [
-            [
-                "40dcde2e07b78620",
-                "c5b5a7d0e7b9e29c"
             ]
         ]
     },
