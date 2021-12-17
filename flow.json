@@ -1604,9 +1604,9 @@
         "y": 160,
         "wires": [
             [
-                "4113121b59ec227d",
                 "59a799019c087a8c",
-                "a1c58414d66106b6"
+                "a1c58414d66106b6",
+                "e930c964ccc20973"
             ]
         ]
     },
@@ -1622,33 +1622,6 @@
         "complete": "false",
         "x": 650,
         "y": 140,
-        "wires": []
-    },
-    {
-        "id": "4113121b59ec227d",
-        "type": "ui_gauge",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "group": "592e27d40a230c67",
-        "order": 1,
-        "width": "5",
-        "height": "4",
-        "gtype": "gage",
-        "title": "Nivell de bateria",
-        "label": "%",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ff1e05",
-            "#e6e600",
-            "#19a207"
-        ],
-        "seg1": "35",
-        "seg2": "91",
-        "className": "",
-        "x": 400,
-        "y": 200,
         "wires": []
     },
     {
@@ -1914,6 +1887,33 @@
         "statusType": "auto",
         "x": 627,
         "y": 204,
+        "wires": []
+    },
+    {
+        "id": "e930c964ccc20973",
+        "type": "ui_gauge",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "group": "592e27d40a230c67",
+        "order": 1,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Nivell de bateria",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff1e05",
+            "#e6e600",
+            "#19a207"
+        ],
+        "seg1": "35",
+        "seg2": "91",
+        "className": "",
+        "x": 360,
+        "y": 220,
         "wires": []
     },
     {
