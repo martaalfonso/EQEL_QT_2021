@@ -203,7 +203,10 @@ void loop() {
 
     for (unsigned char i = 0; i < 4; i++) {
       get_lat_long(2 * i); // Obtenim latitud i longitud d'el punt on volem anar
-
+      // Telemetria
+      get_gps_info();         // Obtenim latitud i longitud d'on estem
+      get_dist_bearing();     // Obtenim distancia i orientació entre dues coordenades
+      show_compass();         // Dades brúxiola i calcul de desviació d'orientació
       while (distance_m > distance_margin) {  // Mentre no haguem arribat al lloc obtenim telemetria i ens apropem
 
         if ((estat_gps == 0.0) or (estat_hmc == 0.0)) { // Si perdem connexio del gpso o bruixola aturem motors fins reprendre connexio
