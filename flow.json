@@ -1303,42 +1303,6 @@
         "wires": []
     },
     {
-        "id": "8c55ab3d94d69061",
-        "type": "mqtt in",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "topic": "esp32/latitude",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "10e78a89.5b4fd5",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 790,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "72e2f9b207e6372c",
-        "type": "mqtt in",
-        "z": "d821cc0e9fee2262",
-        "name": "",
-        "topic": "esp32/longitude",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "10e78a89.5b4fd5",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 800,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "40dcde2e07b78620",
         "type": "ui_gauge",
         "z": "d821cc0e9fee2262",
@@ -1640,8 +1604,8 @@
         "y": 160,
         "wires": [
             [
-                "2d3eb4344b9e18b7",
-                "4113121b59ec227d"
+                "4113121b59ec227d",
+                "59a799019c087a8c"
             ]
         ]
     },
@@ -1655,7 +1619,7 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 390,
+        "x": 470,
         "y": 140,
         "wires": []
     },
@@ -1891,6 +1855,29 @@
         "x": 470,
         "y": 1280,
         "wires": []
+    },
+    {
+        "id": "59a799019c087a8c",
+        "type": "csv",
+        "z": "d821cc0e9fee2262",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "2d3eb4344b9e18b7"
+            ]
+        ]
     },
     {
         "id": "65386ab26a6c134d",
